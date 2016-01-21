@@ -8,7 +8,7 @@
  * @property string $email
  * @property string $profile
  */
-class User extends CActiveRecord
+class Profile extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -24,7 +24,7 @@ class User extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{user}}';
+		return 'profile';
 	}
 	/**
 	 * @return array relational rules.
@@ -34,8 +34,7 @@ class User extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'profile' => array(self::HAS_ONE, 'profile', 'user_id'),
-			'posts' => array(self::HAS_MANY, 'Post', 'author_id'),
+			'user' => array(self::BELONGS_TO, 'user', 'id'),
 		);
 	}
 	/**
@@ -46,14 +45,13 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password', 'required'),
-			array('username', 'unique'),
-			array('username, password, email', 'length', 'max'=>128),
-			array('email','email'),
-			array('profile', 'safe'),
+			array('user_id', 'required'),
+			array('user_id', 'unique'),
+			array('name', 'length', 'max'=>128),
+			array('mobile', 'match', 'pattern' => '/^0{0,1}(13[0-9]|14[0-9]|15[0-9]|17[0-9]|18[0-9])[0-9]{8}$/', 'message' => '手机号格式不对！'),
+            array('qq', 'match', 'pattern' => '/^[1-9]\d[0-9]{3,10}$/', 'message' => 'QQ格式不对！'),
 		);
 	}
-
 
 	/**
 	 * @return array customized attribute labels (name=>label)
@@ -62,30 +60,14 @@ class User extends CActiveRecord
 	{
 		return array(
 			'id' => 'Id',
-			'username' => '用戶名',
-			'password' => '密碼',
-			'email' => '郵箱',
-			'profile' => '簡介',
+			'name' => '暱稱',
+			'mobile' => '手機號',
+			'qq' => 'QQ號',
+			'last_visit_ip' => '最後登陸IP',
+			'last_visit_time' => '最後登陸時間',
+			'avatar' => '頭像',
+			'online_time' => '在線時間',
 		);
 	}
 
-	/**
-	 * Checks if the given password is correct.
-	 * @param string the password to be validated
-	 * @return boolean whether the password is valid
-	 */
-	public function validatePassword($password)
-	{
-		return CPasswordHelper::verifyPassword($password,$this->password);
-	}
-
-	/**
-	 * Generates the password hash.
-	 * @param string password
-	 * @return string hash
-	 */
-	public function hashPassword($password)
-	{
-		return CPasswordHelper::hashPassword($password);
-	}
 }

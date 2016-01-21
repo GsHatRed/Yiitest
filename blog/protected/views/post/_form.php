@@ -25,7 +25,7 @@
 			'multiple'=>true,
 			'htmlOptions'=>array('size'=>50),
 		)); ?>
-		<p class="hint">不同的標籤請用空格隔開.</p>
+		<p class="hint">不同的標籤請用空格或逗號隔開.</p>
 		<?php echo $form->error($model,'tags'); ?>
 	</div>
 

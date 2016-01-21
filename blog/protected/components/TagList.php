@@ -10,7 +10,11 @@ class TagList extends CPortlet
 	protected function renderContent()
 	{
 		$tags=Tag::model()->findTagWeights($this->maxTags);
-
+		$link=CHtml::link('全部文章', array('post/tags'));
+			echo CHtml::tag('span', array(
+				'class'=>'tag taglist',
+				'style'=>"font-size:12pt",
+			), $link)."\n";
 		foreach($tags as $tag=>$weight)
 		{
 			$class = 'tag taglist';

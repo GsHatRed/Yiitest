@@ -5,7 +5,7 @@
 nbproject/
 nbactions.xml
 nb-configuration.xml
-
+blog/php.log.
 *.pydevproject
 .project
 .metadata

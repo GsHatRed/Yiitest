@@ -1,0 +1,176 @@
+2016/01/21 03:35:16 [error] [php] Undefined variable: class (F:\xampp\htdocs\yii\blog\protected\components\TagList.php:15)
+Stack trace:
+#0 F:\xampp\htdocs\yii\blog\protected\views\layouts\tags.php(8): PostController->widget()
+#1 F:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#2 F:\xampp\htdocs\yii\framework\web\CBaseController.php(95): PostController->renderInternal()
+#3 F:\xampp\htdocs\yii\framework\web\CController.php(784): PostController->renderFile()
+#4 F:\xampp\htdocs\yii\blog\protected\controllers\PostController.php(157): PostController->render()
+#5 F:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): PostController->actionTags()
+#6 F:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 F:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostController->runAction()
+#8 F:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 F:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 F:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostController->filterAccessControl()
+#11 F:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 F:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 F:\xampp\htdocs\yii\framework\web\CController.php(265): PostController->runActionWithFilters()
+#14 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostController->run()
+#15 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 F:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 F:\xampp\htdocs\yii\blog\index.php(11): CWebApplication->run()
+REQUEST_URI=/yii/blog/post/tags
+2016/01/21 03:35:30 [error] [php] Undefined variable: weight (F:\xampp\htdocs\yii\blog\protected\components\TagList.php:16)
+Stack trace:
+#0 F:\xampp\htdocs\yii\blog\protected\views\layouts\tags.php(8): PostController->widget()
+#1 F:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#2 F:\xampp\htdocs\yii\framework\web\CBaseController.php(95): PostController->renderInternal()
+#3 F:\xampp\htdocs\yii\framework\web\CController.php(784): PostController->renderFile()
+#4 F:\xampp\htdocs\yii\blog\protected\controllers\PostController.php(157): PostController->render()
+#5 F:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): PostController->actionTags()
+#6 F:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 F:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostController->runAction()
+#8 F:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 F:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 F:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostController->filterAccessControl()
+#11 F:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 F:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 F:\xampp\htdocs\yii\framework\web\CController.php(265): PostController->runActionWithFilters()
+#14 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostController->run()
+#15 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 F:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 F:\xampp\htdocs\yii\blog\index.php(11): CWebApplication->run()
+REQUEST_URI=/yii/blog/post/tags
+2016/01/21 03:52:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "profile" 动作.' in F:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 F:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('profile')
+#1 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('profile')
+#2 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('set/profile')
+#3 F:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 F:\xampp\htdocs\yii\blog\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/blog/set/profile
+HTTP_REFERER=http://localhost:8080/yii/blog/post/index
+---
+2016/01/21 03:52:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "profile" 动作.' in F:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 F:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('profile')
+#1 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('profile')
+#2 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('set/profile')
+#3 F:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 F:\xampp\htdocs\yii\blog\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/blog/set/profile
+HTTP_REFERER=http://localhost:8080/yii/blog/post/index
+---
+2016/01/21 03:52:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "profile" 动作.' in F:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 F:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('profile')
+#1 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('profile')
+#2 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('set/profile')
+#3 F:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 F:\xampp\htdocs\yii\blog\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/blog/set/profile
+HTTP_REFERER=http://localhost:8080/yii/blog/post/index
+---
+2016/01/21 03:52:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "profile" 动作.' in F:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 F:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('profile')
+#1 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('profile')
+#2 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('set/profile')
+#3 F:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 F:\xampp\htdocs\yii\blog\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/blog/set/profile
+HTTP_REFERER=http://localhost:8080/yii/blog/post/index
+---
+2016/01/21 03:52:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "profile" 动作.' in F:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 F:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('profile')
+#1 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('profile')
+#2 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('set/profile')
+#3 F:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 F:\xampp\htdocs\yii\blog\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/blog/set/profile
+HTTP_REFERER=http://localhost:8080/yii/blog/post/index
+---
+2016/01/21 03:52:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "profile" 动作.' in F:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 F:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('profile')
+#1 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('profile')
+#2 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('set/profile')
+#3 F:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 F:\xampp\htdocs\yii\blog\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/blog/set/profile
+HTTP_REFERER=http://localhost:8080/yii/blog/post/index
+---
+2016/01/21 03:52:49 [error] [exception.CException] exception 'CException' with message 'SetController 无法找到请求的视图 "frofile".' in F:\xampp\htdocs\yii\framework\web\CController.php:878
+Stack trace:
+#0 F:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('frofile', Array, true)
+#1 F:\xampp\htdocs\yii\blog\protected\controllers\SetController.php(95): CController->render('frofile', Array)
+#2 F:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SetController->actionProfile()
+#3 F:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 F:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 F:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 F:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 F:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 F:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 F:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 F:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('profile')
+#12 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('set/profile')
+#13 F:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 F:\xampp\htdocs\yii\blog\index.php(11): CApplication->run()
+#15 {main}
+REQUEST_URI=/yii/blog/set/profile
+HTTP_REFERER=http://localhost:8080/yii/blog/post/index
+---
+2016/01/21 07:03:25 [error] [php] Undefined variable: toolbar (F:\xampp\htdocs\yii\blog\protected\views\set\profile.php:12)
+Stack trace:
+#0 F:\xampp\htdocs\yii\framework\web\CController.php(869): SetController->renderFile()
+#1 F:\xampp\htdocs\yii\framework\web\CController.php(782): SetController->renderPartial()
+#2 F:\xampp\htdocs\yii\blog\protected\controllers\SetController.php(101): SetController->render()
+#3 F:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SetController->actionProfile()
+#4 F:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 F:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): SetController->runAction()
+#6 F:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 F:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 F:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): SetController->filterAccessControl()
+#9 F:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 F:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 F:\xampp\htdocs\yii\framework\web\CController.php(265): SetController->runActionWithFilters()
+#12 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SetController->run()
+#13 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 F:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 F:\xampp\htdocs\yii\blog\index.php(11): CWebApplication->run()
+REQUEST_URI=/yii/blog/set/profile
+2016/01/21 07:03:34 [error] [exception.CException] exception 'CException' with message '别名 "bootstrap.widgets.TbGroupGridView" 是无效的. 请确定它指向一个已存在的目录或文件.' in F:\xampp\htdocs\yii\framework\YiiBase.php:348
+Stack trace:
+#0 F:\xampp\htdocs\yii\framework\web\CWidgetFactory.php(146): YiiBase::import('bootstrap.widge...', true)
+#1 F:\xampp\htdocs\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(SetController), 'bootstrap.widge...', Array)
+#2 F:\xampp\htdocs\yii\framework\web\CBaseController.php(180): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 F:\xampp\htdocs\yii\blog\protected\views\set\profile.php(60): CBaseController->widget('bootstrap.widge...', Array)
+#4 F:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('F:\xampp\htdocs...')
+#5 F:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('F:\xampp\htdocs...', Array, true)
+#6 F:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('F:\xampp\htdocs...', Array, true)
+#7 F:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('profile', Array, true)
+#8 F:\xampp\htdocs\yii\blog\protected\controllers\SetController.php(101): CController->render('profile', Array)
+#9 F:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SetController->actionProfile()
+#10 F:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 F:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 F:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 F:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 F:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 F:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 F:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 F:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('profile')
+#19 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('set/profile')
+#20 F:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#21 F:\xampp\htdocs\yii\blog\index.php(11): CApplication->run()
+#22 {main}
+REQUEST_URI=/yii/blog/set/profile
+HTTP_REFERER=http://localhost:8080/yii/blog/post/index
+---
