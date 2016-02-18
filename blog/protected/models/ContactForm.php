@@ -27,7 +27,7 @@ class ContactForm extends CFormModel
 			array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements()),
 		);
 	}
-
+	
 	/**
 	 * Declares customized attribute labels.
 	 * If not declared here, an attribute would have a label that is

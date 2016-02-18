@@ -174,3 +174,102 @@ Stack trace:
 REQUEST_URI=/yii/blog/set/profile
 HTTP_REFERER=http://localhost:8080/yii/blog/post/index
 ---
+2016/02/18 07:19:31 [warning] [application] Failed to set unsafe attribute "name" of "ContactForm".
+2016/02/18 07:19:31 [error] [php] include(Article.php): failed to open stream: No such file or directory (F:\xampp\htdocs\yii\framework\YiiBase.php:432)
+Stack trace:
+#0 F:\xampp\htdocs\yii\blog\protected\extensions\validator\uniqueMulti.php(33): spl_autoload_call()
+#1 F:\xampp\htdocs\yii\framework\validators\CValidator.php(201): uniqueMulti->validateAttribute()
+#2 F:\xampp\htdocs\yii\framework\base\CModel.php(159): uniqueMulti->validate()
+#3 F:\xampp\htdocs\yii\blog\protected\controllers\SiteController.php(49): ContactForm->validate()
+#4 F:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionContact()
+#5 F:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 F:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#7 F:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#8 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#9 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 F:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 F:\xampp\htdocs\yii\blog\index.php(11): CWebApplication->run()
+REQUEST_URI=/yii/blog/site/contact
+2016/02/18 07:20:26 [warning] [application] Failed to set unsafe attribute "name" of "ContactForm".
+2016/02/18 07:20:26 [error] [php] include(Article.php): failed to open stream: No such file or directory (F:\xampp\htdocs\yii\framework\YiiBase.php:432)
+Stack trace:
+#0 F:\xampp\htdocs\yii\blog\protected\extensions\validator\uniqueMulti.php(33): spl_autoload_call()
+#1 F:\xampp\htdocs\yii\framework\validators\CValidator.php(201): uniqueMulti->validateAttribute()
+#2 F:\xampp\htdocs\yii\framework\base\CModel.php(159): uniqueMulti->validate()
+#3 F:\xampp\htdocs\yii\blog\protected\controllers\SiteController.php(49): ContactForm->validate()
+#4 F:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionContact()
+#5 F:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 F:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#7 F:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#8 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#9 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 F:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 F:\xampp\htdocs\yii\blog\index.php(11): CWebApplication->run()
+REQUEST_URI=/yii/blog/site/contact
+2016/02/18 07:23:02 [warning] [application] Failed to set unsafe attribute "name" of "ContactForm".
+2016/02/18 07:23:02 [error] [exception.CException] exception 'CException' with message 'ContactForm and its behaviors do not have a method or closure named "getTableSchema".' in F:\xampp\htdocs\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 F:\xampp\htdocs\yii\blog\protected\extensions\validator\uniqueMulti.php(32): CComponent->__call('getTableSchema', Array)
+#1 F:\xampp\htdocs\yii\blog\protected\extensions\validator\uniqueMulti.php(32): ContactForm->getTableSchema()
+#2 F:\xampp\htdocs\yii\framework\validators\CValidator.php(201): uniqueMulti->validateAttribute(Object(ContactForm), 'body+subject')
+#3 F:\xampp\htdocs\yii\framework\base\CModel.php(159): CValidator->validate(Object(ContactForm), NULL)
+#4 F:\xampp\htdocs\yii\blog\protected\controllers\SiteController.php(49): CModel->validate()
+#5 F:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionContact()
+#6 F:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 F:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#8 F:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('contact')
+#10 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/contact')
+#11 F:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#12 F:\xampp\htdocs\yii\blog\index.php(11): CApplication->run()
+#13 {main}
+REQUEST_URI=/yii/blog/site/contact
+HTTP_REFERER=http://localhost:8080/yii/blog/site/contact
+---
+2016/02/18 07:29:05 [error] [exception.CException] exception 'CException' with message '属性 "uniqueMulti.model" 未被定义.' in F:\xampp\htdocs\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 F:\xampp\htdocs\yii\framework\validators\CValidator.php(177): CComponent->__set('model', 'ContactForm')
+#1 F:\xampp\htdocs\yii\framework\base\CModel.php(287): CValidator::createValidator('uniqueMulti', Object(ContactForm), 'body+subject', Array)
+#2 F:\xampp\htdocs\yii\framework\base\CModel.php(260): CModel->createValidators()
+#3 F:\xampp\htdocs\yii\framework\base\CModel.php(547): CModel->getValidators()
+#4 F:\xampp\htdocs\yii\framework\base\CModel.php(468): CModel->getSafeAttributeNames()
+#5 F:\xampp\htdocs\yii\framework\base\CComponent.php(152): CModel->setAttributes(Array)
+#6 F:\xampp\htdocs\yii\blog\protected\controllers\SiteController.php(48): CComponent->__set('attributes', Array)
+#7 F:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionContact()
+#8 F:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 F:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 F:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('contact')
+#12 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/contact')
+#13 F:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 F:\xampp\htdocs\yii\blog\index.php(11): CApplication->run()
+#15 {main}
+REQUEST_URI=/yii/blog/site/contact
+HTTP_REFERER=http://localhost:8080/yii/blog/site/contact
+---
+2016/02/18 07:33:08 [warning] [application] Failed to set unsafe attribute "name" of "ContactForm".
+2016/02/18 07:34:46 [warning] [application] Failed to set unsafe attribute "name" of "ContactForm".
+2016/02/18 07:34:46 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'body' in 'where clause'. The SQL statement executed was: SELECT * FROM `tbl_post` `t` WHERE body='asd' AND subject='asd' LIMIT 1.
+2016/02/18 07:34:46 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'body' in 'where clause'. The SQL statement executed was: SELECT * FROM `tbl_post` `t` WHERE body='asd' AND subject='asd' LIMIT 1' in F:\xampp\htdocs\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 F:\xampp\htdocs\yii\framework\db\CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
+#1 F:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryRow()
+#2 F:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1461): CActiveRecord->query(Object(CDbCriteria))
+#3 F:\xampp\htdocs\yii\blog\protected\extensions\validator\uniqueMulti.php(33): CActiveRecord->find('body='asd' AND ...')
+#4 F:\xampp\htdocs\yii\framework\validators\CValidator.php(201): uniqueMulti->validateAttribute(Object(ContactForm), 'body+subject')
+#5 F:\xampp\htdocs\yii\framework\base\CModel.php(159): CValidator->validate(Object(ContactForm), NULL)
+#6 F:\xampp\htdocs\yii\blog\protected\controllers\SiteController.php(49): CModel->validate()
+#7 F:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionContact()
+#8 F:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 F:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 F:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('contact')
+#12 F:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/contact')
+#13 F:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 F:\xampp\htdocs\yii\blog\index.php(11): CApplication->run()
+#15 {main}
+REQUEST_URI=/yii/blog/site/contact
+HTTP_REFERER=http://localhost:8080/yii/blog/site/contact
+---
+2016/02/18 07:35:20 [warning] [application] Failed to set unsafe attribute "name" of "ContactForm".
+2016/02/18 07:38:35 [warning] [application] Failed to set unsafe attribute "name" of "ContactForm".

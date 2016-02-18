@@ -50,6 +50,7 @@ class User extends CActiveRecord
 			array('username', 'unique'),
 			array('username, password, email', 'length', 'max'=>128),
 			array('email','email'),
+			array('username+email', 'uniqueMulti','message'=>'用户名和邮箱重复'),
 			array('profile', 'safe'),
 		);
 	}
