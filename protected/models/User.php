@@ -34,7 +34,7 @@ class User extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'profile' => array(self::HAS_ONE, 'profile', 'user_id'),
+			'profile' => array(self::HAS_ONE, 'Profile', 'user_id'),
 			'posts' => array(self::HAS_MANY, 'Post', 'author_id'),
 		);
 	}
@@ -51,7 +51,6 @@ class User extends CActiveRecord
 			array('username, password, email', 'length', 'max'=>128),
 			array('email','email'),
 			array('username+email', 'uniqueMulti','message'=>'用户名和邮箱重复'),
-			array('profile', 'safe'),
 		);
 	}
 
@@ -62,11 +61,10 @@ class User extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'Id',
+			'id' => 'NO.',
 			'username' => '用戶名',
 			'password' => '密碼',
 			'email' => '郵箱',
-			'profile' => '簡介',
 		);
 	}
 

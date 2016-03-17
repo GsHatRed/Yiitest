@@ -42,21 +42,23 @@ class SetController extends Controller
 	 */
 	public function actionUpdate()
 	{
-		$model=$this->loadModel();
-		if(isset($_POST['ajax']) && $_POST['ajax']==='comment-form')
+		$model = $this->loadModel();
+		$profile_model = $model->profile;
+		if(isset($_POST['ajax']) && $_POST['ajax']==='profile-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
-		if(isset($_POST['Comment']))
+		if(isset($_POST['profile']))
 		{
-			$model->attributes=$_POST['Comment'];
+			$model->attributes=$_POST['profile'];
 			if($model->save())
 				$this->redirect(array('index'));
 		}
 
 		$this->render('update',array(
 			'model'=>$model,
+			'profile_model' => $profile_model
 		));
 	}
 
@@ -84,12 +86,12 @@ class SetController extends Controller
 	 */
 	public function actionProfile()
 	{
-		$criteria=new CDbCriteria(array(
+		$criteria = new CDbCriteria(array(
 			'condition'=>'t.id="'.Yii::app()->user->id.'"',
 			'with'=>'profile',
 		));
-
-		$dataProvider=new CActiveDataProvider('User', array(
+		$model = $this->loadModel();
+		$dataProvider = new CActiveDataProvider('User', array(
 			'pagination'=>array(
 				'pageSize'=>Yii::app()->params['postsPerPage'],
 			),
@@ -97,7 +99,8 @@ class SetController extends Controller
 		));
 
 		$this->render('profile',array(
-			'dataProvider'=>$dataProvider,
+			'model' => $model,
+			'dataProvider' => $dataProvider,
 		));
 	}
 

@@ -59,7 +59,7 @@ class Profile extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'Id',
+			'id' => 'NO.',
 			'name' => '暱稱',
 			'mobile' => '手機號',
 			'qq' => 'QQ號',
@@ -67,6 +67,8 @@ class Profile extends CActiveRecord
 			'last_visit_time' => '最後登陸時間',
 			'avatar' => '頭像',
 			'online_time' => '在線時間',
+			'profiles' => '簡介',
+			'sex' => '性别'
 		);
 	}
 

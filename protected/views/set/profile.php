@@ -1,26 +1,24 @@
+<span>
+    您是本站第<?=$model->id?>位用戶。
+    在線時長:<?=floor($model->profile->online_time/60)?>小時<?=$model->profile->online_time%60?>分鐘。
+</span>
 <?php
-//var_dump($dataProvider);
-?>
-<?php
-
-$this->widget('zii.widgets.grid.CGridView', array(
-    'id' => 'student_list',
-    'dataProvider' => $dataProvider,
-    'template' => "{pager}{items}",
-
-    'columns' => array(
-        array(
-            'class' => 'CCheckBoxColumn',
-            'selectableRows' => 2,
-            'value' => '$data->id',
-            'headerHtmlOptions' => array('width' => '10px'),
-            'checkBoxHtmlOptions' => array('name' => 'selectdel[]', 'style' => 'margin-top:-3px;'),
-            'htmlOptions' => array('class' => 'notopen'),
-        ),
-        array(
-            'name' => 'login_name',
-        ),
-
-    )
+$this->widget('bootstrap.widgets.TbButton', array(
+        'label' => '修改',
+        'size' => 'larger',
+        'url' => $this->createUrl("update"),
+    ));
+$this->widget('bootstrap.widgets.TbDetailView', array(
+    'data' => $model,
+    'attributes' =>  array(
+        //'id',
+        'username',
+        array('name' => '暱稱', 'value' => $model->profile->name),
+        'email',
+        array('name' => '手機號', 'value' => $model->profile->mobile),
+        array('name' => 'QQ', 'value' => $model->profile->qq),
+        
+        array('name' => '簡介', 'value' => $model->profile->profiles),
+            ) 
 ));
 ?>

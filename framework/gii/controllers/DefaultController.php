@@ -7,7 +7,7 @@ class DefaultController extends CController
 	public function getPageTitle()
 	{
 		if($this->action->id==='index')
-			return 'Gii: a Web-based code generator for Yii';
+			return 'Gii: 快速生成代码';
 		else
 			return 'Gii - '.ucfirst($this->action->id).' Generator';
 	}

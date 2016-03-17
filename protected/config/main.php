@@ -11,8 +11,8 @@ return array(
 	'charset' => 'UTF-8',
     'language'=>'zh_CN',
 	// preloading 'log' component
-	'preload'=>array('log'),
-
+	'preload'=>array('bootstrap','log'),
+	//'theme'=>'bootstrap',
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
@@ -26,6 +26,9 @@ return array(
             'class' => 'system.gii.GiiModule',
             'password' => 'GShatred',
             'ipFilters'=>array('127.0.0.1','::1'),
+            // 'generatorPaths'=>array(
+            //     'ext.bootstrap.gii',
+            // ),
         ),
     ),
 	// application components
@@ -51,7 +54,9 @@ return array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
 		),
-		
+		'bootstrap'=>array(  
+                'class'=>'ext.bootstrap.components.Bootstrap',  
+        ),  
 		'urlManager' => array(
             'urlFormat' => 'path',
             'showScriptName' => false,
@@ -64,21 +69,25 @@ return array(
                 '<controller:\w+>/<action:\w+>/*' => '<controller>/<action>',
             ),
         ),
-		'log'=>array(
-			'class'=>'CLogRouter',
-			'routes'=>array(
-				array(
-					'class'=>'CFileLogRoute',
-					'levels'=>'error, warning',
-				),
-				// uncomment the following to show log messages on web pages
-				/*
-				array(
-					'class'=>'CWebLogRoute',
-				),
-				*/
-			),
-		),
+		// 'log'=>array(
+		// 	'class'=>'CLogRouter',
+		// 	'routes'=>array(
+		// 		array(
+		// 			'class'=>'CFileLogRoute',
+		// 			'levels'=>'error, warning',
+		// 		),
+				
+		// 	),
+		// ),
+		'log' => array(
+            'class'=>'CLogRouter',
+            'routes'=>array(
+                array(
+                    'class'=>'ext.yii-debug-toolbar.YiiDebugToolbarRoute',
+                    'ipFilters'=>array('127.0.0.1'),
+                ),
+            ),
+        ),
 	),
 
 	// application-level parameters that can be accessed
