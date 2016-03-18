@@ -73,7 +73,9 @@ class LoginForm extends CFormModel
 			$this->_identity->setState('username', $user->username);
             $this->_identity->setState('id', $user->id);
             $this->_identity->setState('email', $user->email);
-            $this->_identity->setState('profile', $user->profile);
+            $this->_identity->setState('qq', $user->profile->qq);
+            $this->_identity->setState('name', $user->profile->name);
+            $this->_identity->setState('profiles', $user->profile->profiles);
 			Yii::app()->user->login($this->_identity,$duration);
 			return true;
 		}

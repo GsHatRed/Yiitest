@@ -47,13 +47,15 @@ class SetController extends Controller
 		if(isset($_POST['ajax']) && $_POST['ajax']==='profile-form')
 		{
 			echo CActiveForm::validate($model);
+			echo CActiveForm::validate($profile_model);
 			Yii::app()->end();
 		}
-		if(isset($_POST['profile']))
+		if(isset($_POST['Profile']))
 		{
-			$model->attributes=$_POST['profile'];
-			if($model->save())
-				$this->redirect(array('index'));
+			$model->attributes=$_POST['User'];
+			$profile_model->attributes=$_POST['Profile'];
+			if($model->save() && $profile_model->save())
+				$this->redirect(array('update'));
 		}
 
 		$this->render('update',array(
@@ -97,7 +99,6 @@ class SetController extends Controller
 			),
 			'criteria'=>$criteria,
 		));
-
 		$this->render('profile',array(
 			'model' => $model,
 			'dataProvider' => $dataProvider,

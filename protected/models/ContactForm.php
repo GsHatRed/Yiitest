@@ -23,6 +23,7 @@ class ContactForm extends CFormModel
 			array('email, subject, body', 'required'),
 			// email has to be a valid email address
 			array('email', 'email'),
+			array('subject+email', 'uniqueMulti','message'=>'请勿重复提交'),
 			// verifyCode needs to be entered correctly
 			array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements()),
 		);

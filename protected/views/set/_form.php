@@ -120,10 +120,10 @@ Yii::app()->clientScript->registerCss($this->id, '
 )); ?>
 
 <div class="search-form">
-    <p class="note">带有<span class="required">*</span> 字段为必填项.</p>
     <?php echo $form->errorSummary($model); ?>
+    <?php echo $form->errorSummary($profile_model); ?>
     <div id='one-column'>
-        <?php echo $form->textFieldRow($model, 'username'); ?>
+        <?php echo $form->textField($model, 'username'); ?>
 
     </div>
     
@@ -150,7 +150,9 @@ Yii::app()->clientScript->registerCss($this->id, '
             <?php echo $form->textArea($profile_model, 'profiles', array('size' => 60, 'maxlength' => 255)); ?>
 
         </div>
-
+    <div class="row buttons">
+        <?php echo CHtml::submitButton('修改'); ?>
+    </div>
     </div>
 
 
