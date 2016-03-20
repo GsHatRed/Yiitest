@@ -41,6 +41,11 @@ body
 	border-top: 1px solid #C9E0ED;
 }
 
+#header,#footer{
+	border-image: linear-gradient(90deg, #E50743, #F9870F, #E8ED30, #3FA62E, #3BB4D7, #2F4D9E, #71378A);
+	border-image-slice: 1;
+}
+
 #logo
 {
 	padding: 10px 20px;
