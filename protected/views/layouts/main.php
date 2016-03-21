@@ -32,7 +32,7 @@
 				array('label'=>'標籤', 'url'=>array('post/tags')),
 				array('label'=>'關於', 'url'=>array('site/page', 'view'=>'about')),
 				array('label'=>'聯繫我們', 'url'=>array('site/contact')),
-				array('label'=>'個人主頁', 'url'=>array('set/profile')),
+				array('label'=>'個人主頁', 'url'=>array('set/profile'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'登陸', 'url'=>array('site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'註冊', 'url'=>array('site/regist'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'退出 ('.Yii::app()->user->name.')', 'url'=>array('site/logout'), 'visible'=>!Yii::app()->user->isGuest)
