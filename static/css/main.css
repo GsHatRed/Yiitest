@@ -9,17 +9,17 @@ body
 
 #page
 {
-	margin-top: 5px;
-	margin-bottom: 5px;
+	margin: 0;
 	background: white;
 	border: 1px solid #C9E0ED;
+	width: 100%;
 }
 
 #header
 {
 	margin: 0;
 	padding: 0;
-	border-top: 3px solid #C9E0ED;
+	border-bottom: 3px solid #C9E0ED;
 }
 
 #content
@@ -50,11 +50,14 @@ body
 {
 	padding: 10px 20px;
 	font-size: 200%;
+	float: left;
+	margin-left: 30px;
 }
 
 #mainmenu
 {
 	background:white url(bg.gif) repeat-x left top;
+	padding: 5px;
 }
 
 #mainmenu ul
@@ -142,8 +145,10 @@ div.view
 
 div.breadcrumbs
 {
+	width: 940px;
 	font-size: 0.9em;
 	padding: 5px 20px;
+	margin: auto;
 }
 
 div.breadcrumbs span

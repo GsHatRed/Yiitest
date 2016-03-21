@@ -1,3 +1,4 @@
+
 <?php foreach($comments as $comment): ?>
 <div class="comment" id="c<?php echo $comment->id; ?>">
 

@@ -1,3 +1,4 @@
+<script type="text/javascript" src="<?=Yii::app()->request->baseUrl?>/static/ckeditor/ckeditor.js"></script>
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -37,3 +38,6 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+<script type="text/javascript">
+    CKEDITOR.replace( 'Comment_content' );
+</script>

@@ -4,7 +4,7 @@ $this->breadcrumbs=array(
 	'聯繫我們',
 );
 ?>
-
+<script type="text/javascript" src="<?=Yii::app()->request->baseUrl?>/static/ckeditor/ckeditor.js"></script>
 <h1>聯繫我們</h1>
 
 <?php if(Yii::app()->user->hasFlash('contact')): ?>
@@ -65,3 +65,6 @@ $this->breadcrumbs=array(
 </div><!-- form -->
 
 <?php endif; ?>
+<script type="text/javascript">
+    CKEDITOR.replace( 'ContactForm_body' );
+</script>

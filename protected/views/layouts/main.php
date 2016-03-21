@@ -23,22 +23,23 @@
 
 	<div id="header">
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
+		<div id="mainmenu">
+		<?php 
+			$this->widget('zii.widgets.CMenu',array(
+				'items'=>array(
+					array('label'=>'主頁', 'url'=>array('post/index')),
+					array('label'=>'標籤', 'url'=>array('post/tags')),
+					array('label'=>'關於', 'url'=>array('site/page', 'view'=>'about')),
+					array('label'=>'聯繫我們', 'url'=>array('site/contact')),
+					array('label'=>'個人主頁', 'url'=>array('set/profile'), 'visible'=>!Yii::app()->user->isGuest),
+					array('label'=>'登陸', 'url'=>array('site/login'), 'visible'=>Yii::app()->user->isGuest),
+					array('label'=>'註冊', 'url'=>array('site/regist'), 'visible'=>Yii::app()->user->isGuest),
+					array('label'=>'退出 ('.Yii::app()->user->name.')', 'url'=>array('site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				),
+			)); 
+		?>
+		</div><!-- mainmenu -->
 	</div><!-- header -->
-
-	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'主頁', 'url'=>array('post/index')),
-				array('label'=>'標籤', 'url'=>array('post/tags')),
-				array('label'=>'關於', 'url'=>array('site/page', 'view'=>'about')),
-				array('label'=>'聯繫我們', 'url'=>array('site/contact')),
-				array('label'=>'個人主頁', 'url'=>array('set/profile'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'登陸', 'url'=>array('site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'註冊', 'url'=>array('site/regist'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'退出 ('.Yii::app()->user->name.')', 'url'=>array('site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-			),
-		)); ?>
-	</div><!-- mainmenu -->
 
 	<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 		'links'=>$this->breadcrumbs,

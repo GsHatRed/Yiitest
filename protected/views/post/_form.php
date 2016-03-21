@@ -20,7 +20,7 @@
 // //  Realtive Path to the Editor (from Web-Root) 
 //   ); 
  ?>
- <script type="text/javascript" src="<?=Yii::app()->request->baseUrl?>/static/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="<?=Yii::app()->request->baseUrl?>/static/ckeditor/ckeditor.js"></script>
 <div class="form">
             
 <?php $form=$this->beginWidget('CActiveForm'); ?>
