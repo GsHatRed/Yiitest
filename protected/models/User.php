@@ -88,4 +88,12 @@ class User extends CActiveRecord
 	{
 		return CPasswordHelper::hashPassword($password);
 	}
+	public function afterSave(){
+		parent::afterSave();
+		if(empty($this->profile)){
+			$profile = new Profile;
+			$profile->user_id = $this->id;
+			$profile->save();
+		}
+	}
 }
