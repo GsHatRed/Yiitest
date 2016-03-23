@@ -29,6 +29,7 @@
 				'items'=>array(
 					array('label'=>'主頁', 'url'=>array('post/index')),
 					array('label'=>'標籤', 'url'=>array('post/tags')),
+					array('label'=>'聊起來', 'url'=>array('chat/index')),
 					array('label'=>'關於', 'url'=>array('site/page', 'view'=>'about')),
 					array('label'=>'聯繫我們', 'url'=>array('site/contact')),
 					array('label'=>'個人主頁', 'url'=>array('set/profile'), 'visible'=>!Yii::app()->user->isGuest),
