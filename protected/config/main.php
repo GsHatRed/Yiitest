@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'have a try',
+	'name'=>'Gself Blog',
 	'charset' => 'UTF-8',
     'language'=>'zh_CN',
 	// preloading 'log' component
