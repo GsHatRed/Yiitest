@@ -57,7 +57,7 @@ class Chat extends CActiveRecord
 			'prise' => '贊',
 			'parent_id' => '上層',
 			'content' => '內容',
-			
+			'date' => '發佈時間'
 		);
 	}
 }

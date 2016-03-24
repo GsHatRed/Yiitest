@@ -238,3 +238,7 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
 .taglist a{text-decoration: none;}
 .active{  background-color: #4DABB8;}
 .active a{color: #fff}
+.chat{  width: 50%;border: 1px solid #ccc;border-radius: 10px;}
+.chat .name{padding-left: 15px}
+.chat .content{text-align: center;}
+.chat .time{text-align: right;width: 80%;display: block;}
