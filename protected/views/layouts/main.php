@@ -35,7 +35,7 @@
 					array('label'=>'個人主頁', 'url'=>array('set/profile'), 'visible'=>!Yii::app()->user->isGuest),
 					array('label'=>'登陸', 'url'=>array('site/login'), 'visible'=>Yii::app()->user->isGuest),
 					array('label'=>'註冊', 'url'=>array('site/regist'), 'visible'=>Yii::app()->user->isGuest),
-					array('label'=>'退出 ('.Yii::app()->user->name.')', 'url'=>array('site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+					array('label'=>'退出 ('.User::getNameById(Yii::app()->user->id).')', 'url'=>array('site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 				),
 			)); 
 		?>

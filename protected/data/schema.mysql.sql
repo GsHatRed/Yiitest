@@ -87,7 +87,7 @@ INSERT INTO profile (user_id) VALUES (1);
 CREATE TABLE `chat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `prise` int(11) DEFAULT '0',
+  `prise` int(11) NOT NULL DEFAULT '0',
   `parent_id` int(11) DEFAULT NULL,
   `content` text,
   `date` int(11) DEFAULT NULL,

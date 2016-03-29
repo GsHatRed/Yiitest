@@ -66,6 +66,11 @@ class SetController extends Controller
 				if(is_object($image) && get_class($image) === 'CUploadedFile'){  
 			        $image->saveAs(Yii::app()->basePath.Yii::app()->params['avatarUrl'].Yii::app()->user->id.'/'.$profile_model->avatar);  
 			    }
+			    Yii::app()->user->setState('username', $model->username!=null ? $model->username:"");
+			    Yii::app()->user->setState('email', $model->email!=null ? $model->email:"");
+			    Yii::app()->user->setState('qq', $profile_model->qq!=null ? $profile_model->qq:"");
+			    Yii::app()->user->setState('name', $profile_model->name!=null ? $profile_model->name:"");
+			    Yii::app()->user->setState('profiles', $profile_model->profiles!=null ? $profile_model->profiles:"");
 				$this->redirect(array('update'));
 		}
 
