@@ -21,7 +21,8 @@ local.properties
 .classpath
 .settings/
 .loadpath
-
+upload/avatar/1/*
+upload/avatar/2/*
 # External tool builders
 .externalToolBuilders/
 

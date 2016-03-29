@@ -68,3 +68,28 @@ INSERT INTO tbl_comment (content, status, create_time, author, email, post_id) V
 INSERT INTO tbl_tag (name) VALUES ('yii');
 INSERT INTO tbl_tag (name) VALUES ('blog');
 INSERT INTO tbl_tag (name) VALUES ('test');
+CREATE TABLE `profile` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `last_visit_time` int(11) DEFAULT NULL,
+  `last_visit_ip` varchar(20) DEFAULT NULL,
+  `mobile` varchar(11) DEFAULT NULL,
+  `qq` int(11) DEFAULT NULL,
+  `online_time` int(11) DEFAULT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `status` tinyint(4) DEFAULT NULL,
+  `profiles` text,
+  `sex` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+INSERT INTO profile (user_id) VALUES (1);
+CREATE TABLE `chat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `prise` int(11) DEFAULT '0',
+  `parent_id` int(11) DEFAULT NULL,
+  `content` text,
+  `date` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

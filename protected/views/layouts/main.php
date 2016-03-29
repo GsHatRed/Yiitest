@@ -13,7 +13,7 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/static/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/static/css/form.css" />
-
+	<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/static/js/util.js");?>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 

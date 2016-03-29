@@ -60,4 +60,7 @@ class Chat extends CActiveRecord
 			'date' => '發佈時間'
 		);
 	}
+	public function priseCount() {
+        self::model()->updateByPk($this->id, array('prise' => $this->prise + 1));
+    }
 }

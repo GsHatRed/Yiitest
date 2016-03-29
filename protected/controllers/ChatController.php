@@ -38,8 +38,26 @@ class ChatController extends Controller{
 
 	}
 
+	public function actionPrise(){
+		$id = $_POST['id'];
+		$model = $this->loadModelById($id);
+		$model->priseCount();
+		//if($model->save()){
+			echo 'ok';
+		// }else{
+		// 	echo 'no';
+		// }
+	}
+
 	public function loadModelByUser(){
 		$model = Chat::model()->findByPk(Yii::app()->user->id);
 		return $model;
+	}
+	public function loadModelById($id){
+		$model = Chat::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		else
+			return $model;
 	}
 }

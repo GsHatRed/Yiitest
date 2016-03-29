@@ -30,13 +30,37 @@
 //         array('name'=>'date','value'=>'date("Y-m-d",$data->date)')
 //         )
 // ));
+$this->widget('bootstrap.widgets.TbListView', array(
+    'dataProvider' => $dataProvider,
+    'itemView' => '_chat',
+    'template' => '{items}{pager}',
+    'id' => 'chat',
+    'htmlOptions' => array('style' => 'padding-top:0px;')
+));
 ?>
-<?php foreach($dataProvider->getData() as $key => $data):?>
-    <?php if($data->parent_id==0): ?>
-    <?php $float = $key%2==1?'right':'left'; ?>
-    <div class="chat" style="float:<?=$float?>">
-        <span class="name"><?=User::getNameById($data->user_id)?>:</span>
-        <span class="content"><?=$data->content?></span>
-        <span class="time"><?=date("Y-m-d H:i:s",$data->date)?></span>
-    </div>
-<?php endif;endforeach;?>
+<?php //foreach($dataProvider->getData() as $key => $data):?>
+    <?php //if($data->parent_id==0): ?>
+    <?php //$float = $key%2==1?'right':'left'; ?>
+    <!-- <div class="chat" style="float:<?//=$float?>">
+        <span class="name"><?//=User::getNameById($data->user_id)?>:</span>
+        <span class="content"><?//=$data->content?></span>
+        <span class="time"><?//=date("Y-m-d H:i:s",$data->date)?></span>
+        <span class='prise right' title='喜欢' id="<?//=$data->id?>"><img href="" alt='赞'><?//=$data->prise?></span>
+        <span class='reply right' title='回复'><img href="" alt='回复'></span>
+    </div> -->
+<?php //endif;endforeach;?>
+<script>
+    $(document).ready(function(){
+        $('.prise').bind('click',function(){
+            var el = $(this);
+            $.post("<?=Yii::app()->createURL('/chat/prise')?>",{'id':el.attr('id')},function(result){
+                if(result=='ok'){
+                    $.notify({type: 'success', message: {text: '点赞成功！', icon: 'icon-checkmark'}}).show();
+                    el.html(Number(el.html())+1);
+                }else{
+                    alert('error');
+                }
+            });
+        })
+    })
+</script>

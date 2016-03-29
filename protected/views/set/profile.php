@@ -13,6 +13,8 @@ $this->widget('bootstrap.widgets.TbDetailView', array(
     'attributes' =>  array(
         //'id',
         'username',
+        array('name' => '頭像', 'value' => CHtml::image(Profile::avatarHelper($model->profile->avatar)), 'type' => 'raw'),
+
         array('name' => '暱稱', 'value' => $model->profile->name),
         'email',
         array('name' => '手機號', 'value' => $model->profile->mobile),

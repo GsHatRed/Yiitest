@@ -24,4 +24,6 @@ return array(
 		'2' => 'yellow',
 		'3' => 'blue'
 		),
+	'avatarUrl' => './../upload/avatar/',
+	'avatarView' => '/yii/upload/avatar/',
 );

@@ -54,7 +54,18 @@ class SetController extends Controller
 		{
 			$model->attributes=$_POST['User'];
 			$profile_model->attributes=$_POST['Profile'];
+
+			$image = CUploadedFile::getInstance($profile_model, 'avatar');  
+			if( is_object($image) && get_class($image) === 'CUploadedFile' ){  
+			    $profile_model->avatar = md5($image->name).'.'.explode('image/', $image->type)[1];  
+			}else{  
+			    $profile_model->avatar = 'NoPic.jpg';  
+			}  
+
 			if($model->save() && $profile_model->save())
+				if(is_object($image) && get_class($image) === 'CUploadedFile'){  
+			        $image->saveAs(Yii::app()->basePath.Yii::app()->params['avatarUrl'].Yii::app()->user->id.'/'.$profile_model->avatar);  
+			    }
 				$this->redirect(array('update'));
 		}
 

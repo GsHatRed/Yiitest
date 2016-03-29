@@ -50,6 +50,7 @@ class Profile extends CActiveRecord
 			array('name', 'length', 'max'=>128),
 			array('mobile', 'match', 'pattern' => '/^0{0,1}(13[0-9]|14[0-9]|15[0-9]|17[0-9]|18[0-9])[0-9]{8}$/', 'message' => '手机号格式不对！'),
             array('qq', 'match', 'pattern' => '/^[1-9]\d[0-9]{3,10}$/', 'message' => 'QQ格式不对！'),
+            array('avatar',   'file',   'allowEmpty'=>true,  'types'=>'jpg,gif,png',  'maxSize'=>1024 * 1024 * 1,  'tooLarge'=>'头像最大不超过1MB，请重新上传!',  ), 
 		);
 	}
 
@@ -71,5 +72,16 @@ class Profile extends CActiveRecord
 			'sex' => '性别'
 		);
 	}
-
+	public static function avatarHelper($avatar){
+		$file = Yii::app()->basePath.Yii::app()->params['avatarUrl'].Yii::app()->user->id.'/'.$avatar;
+		if(file_exists($file))
+			return Yii::app()->params['avatarView'].Yii::app()->user->id.'/'.$avatar;
+		else
+			echo $file;
+			return Yii::app()->params['avatarView'].'0/avatar.png';
+	}
+	public static function avatarByUserId($id){
+		$model = self::model()->find('user_id=:user_id', array(':user_id'=>$id));
+		return self::avatarHelper($model->avatar);
+	}
 }
