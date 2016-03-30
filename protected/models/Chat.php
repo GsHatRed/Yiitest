@@ -54,13 +54,13 @@ class Chat extends CActiveRecord
 		return array(
 			'id' => 'NO.',
 			'user_id' => 'By',
-			'prise' => '贊',
+			'praise' => '贊',
 			'parent_id' => '上層',
 			'content' => '內容',
 			'date' => '發佈時間'
 		);
 	}
-	public function priseCount() {
-        self::model()->updateByPk($this->id, array('prise' => $this->prise + 1));
+	public function praiseCount() {
+        self::model()->updateByPk($this->id, array('praise' => $this->praise + 1));
     }
 }

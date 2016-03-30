@@ -1,0 +1,12 @@
+/* 
+    Document   : portal
+    Created on : 2013-6-26, 13:13:24
+    Author     : FL
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+a.pick_color {display: inline-block; border: 1px solid #fff; }
+a.pick_color:hover {display: inline-block; border: 1px solid rgb(70, 134, 198);background-color: rgb(231, 240, 251)}
+a.pick_color.active {border: 1px solid rgb(70, 134, 198);background-color: rgb(231, 240, 251)}
+a.pick_color span{display: block; width: 20px; height: 20px; margin: 3px;}

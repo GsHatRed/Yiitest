@@ -1,0 +1,29 @@
+#browser-list li{
+    display:block;
+    float:left; 
+    width:100px;
+    text-align:center;
+    padding-top:100px;
+    margin-left:5px;
+}
+
+#browser-list li.ie{
+    background:url("../img/browser/ie.png") no-repeat;
+}
+
+#browser-list li.chrome{
+    background:url("../img/browser/chrome.png") no-repeat;
+}
+
+#browser-list li.firefox{
+    background:url("../img/browser/firefox.png") no-repeat;
+}
+
+#browser-list li.safari{
+    background:url("../img/browser/safari.png") no-repeat;
+}
+
+#browser-list li.opera{
+    background:url("../img/browser/opera.png") no-repeat;
+}
+

@@ -21,6 +21,7 @@
 <script type="text/javascript">
     CKEDITOR.replace( 'Chat_content' );
 </script>
+
 <?php
 // $this->widget('bootstrap.widgets.TbGridView', array(
 //     'dataProvider' => $dataProvider,
@@ -45,20 +46,20 @@ $this->widget('bootstrap.widgets.TbListView', array(
         <span class="name"><?//=User::getNameById($data->user_id)?>:</span>
         <span class="content"><?//=$data->content?></span>
         <span class="time"><?//=date("Y-m-d H:i:s",$data->date)?></span>
-        <span class='prise right' title='喜欢' id="<?//=$data->id?>"><img href="" alt='赞'><?//=$data->prise?></span>
+        <span class='praise right' title='喜欢' id="<?//=$data->id?>"><img href="" alt='赞'><?//=$data->praise?></span>
         <span class='reply right' title='回复'><img href="" alt='回复'></span>
     </div> -->
 <?php //endif;endforeach;?>
 <script>
     $(document).ready(function(){
-        $('.prise').bind('click',function(){
+        $('.praise').bind('click',function(){
             var el = $(this);
-            $.post("<?=Yii::app()->createURL('/chat/prise')?>",{'id':el.attr('id')},function(result){
+            $.post("<?=Yii::app()->createURL('/chat/praise')?>",{'id':el.attr('id')},function(result){
                 if(result=='ok'){
                     $.notify({type: 'success', message: {text: '点赞成功！', icon: 'icon-checkmark'}}).show();
                     el.html(Number(el.html())+1);
                 }else{
-                    alert('error');
+                    $.notify({type: 'erroe', message: {text: result, icon: 'icon-checkmark'}}).show();
                 }
             });
         })

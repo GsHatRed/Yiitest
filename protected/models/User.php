@@ -97,10 +97,14 @@ class User extends CActiveRecord
 		}
 	}
 	public static function getNameById($id){
-		$model = User::model()->findByPk($id);
-		if(empty($model->profile->name))
-			return $model->username;
-		else
-			return $model->profile->name;
+		if(empty($id)){
+			return '歡迎註冊!';
+		}else{
+			$model = User::model()->findByPk($id);
+			if(empty($model->profile->name))
+				return $model->username;
+			else
+				return $model->profile->name;
+		}
 	}
 }

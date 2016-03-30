@@ -1,0 +1,95 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2013-11-7, 16:03:58
+    Author     : FL
+*/
+
+.td-pager .previous a,  .td-pager .next a{
+    border: 1px solid #aaaaaa;   
+    display:inline-block;
+    height:26px;
+    line-height:26px;
+    text-align:center;
+    font-size:16px;
+    font-weight:bolder;
+    width:26px;
+    -webkit-border-radius: 100% !important;
+    -moz-border-radius: 100% !important;
+    border-radius:100% !important;
+    padding:0;
+}
+.td-pager > .dropdown-menu  > li > a{
+    background:none !important;
+    border:none !important;
+}
+
+.td-pager{
+    display: inline-block;
+    float: right;
+    margin: 0;
+}
+.td-pager .btn-group{
+    margin-left:0;
+    float:left;
+    margin-right:10px;
+}
+.td-pager .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    display: none;
+    min-width: 120px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    overflow: hidden;
+}
+.td-pager ul.dropdown-menu  > li:first-child > a,.td-pager ul.dropdown-menu > li > a, .td-pager ul.dropdown-menu >.jspContainer >.jspPane > li > a, .td-pager ul.dropdown-menu >.jspContainer >.jspPane > li:first-child  > a{
+    background: none;
+    border:none;
+    display: block !important;
+    width: 100%;
+    border-radius: 0;
+    padding: 3px 20px;
+    clear: both;
+    line-height: 20px;
+    color: #000 !important;
+    white-space: nowrap;
+}
+.td-pager ul.dropdown-menu  > li:first-child > a:hover,.td-pager ul.dropdown-menu  > li:first-child > a.active,.pagination .dropdown-menu > li > a:hover,.td-pager .dropdown-menu > li > a.active,.td-pager .dropdown-menu > li > a:focus,.td-pager .dropdown-submenu:hover > a,.td-pager .dropdown-submenu:focus > a,.pagination ul.dropdown-menu >.jspContainer >.jspPane > li > a:hover, .td-pager ul.dropdown-menu >.jspContainer >.jspPane > li:first-child  > a:hover, .td-pager ul.dropdown-menu >.jspContainer >.jspPane > li  > a.active{
+    color: #fff !important;
+    text-shadow:none !important;
+    text-decoration: none;
+    background-color: #0081c2;
+    background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0077b3));
+    background-image: -webkit-linear-gradient(top, #0088cc, #0077b3);
+    background-image: -o-linear-gradient(top, #0088cc, #0077b3);
+    background-image: linear-gradient(to bottom, #0088cc, #0077b3);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
+}
+.td-pager .previous a{
+    margin-right: 4px;
+}
+.td-pager.fuck-pager a{color:#333333}
+.td-pager.fuck-pager{position: absolute; bottom: 10px!important; right: 35px!important;}
+

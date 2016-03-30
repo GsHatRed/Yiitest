@@ -1,0 +1,10 @@
+.attachment_upload .template-upload .start,#upload .template-upload .cancel{ width: 80px !important;}
+.attachment_upload .template-upload .size{ width: 80px !important;white-space:nowrap;overflow:hidden; }
+.attachment_upload .template-upload .name{width: 228px !important;white-space:nowrap;overflow:hidden; text-overflow:ellipsis;}
+.attachment_upload .files .progress {width: 100px !important;}
+.attachment_upload .template-upload .progress-bar{width: 120px !important;}
+.attachment_upload .template-download  .size{ width: 200px !important;white-space:nowrap;overflow:hidden; }
+.attachment_upload .template-download  .name{width: 228px !important;white-space:nowrap;overflow:hidden; text-overflow:ellipsis;}
+.attachment_upload .move-bottom{ position: absolute;bottom:-50px;left:10px;z-index:1200;}
+.attachment_upload .move-right{ position: absolute;bottom:-50px;right:80px;z-index:1200;}
+.attachment_upload .hide-button{padding: 0 !important;height:1px  !important;}

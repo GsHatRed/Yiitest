@@ -11,15 +11,17 @@ return array(
 	'charset' => 'UTF-8',
     'language'=>'zh_CN',
 	// preloading 'log' component
-	'preload'=>array('bootstrap','log'),
+	'preload'=>array('core','bootstrap','log'),
 	//'theme'=>'bootstrap',
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
 		'application.extensions.validator.*',
+		'application.core.components.*',
+        'application.core.utils.*',
 	),
-
+	'behaviors' => array('application.core.behaviors.ConfigBehavior'),
 	'defaultController'=>'post/index',
 	'modules' => array(
         'gii' => array(
@@ -33,6 +35,24 @@ return array(
     ),
 	// application components
 	'components'=>array(
+		'core' => array(
+            'class' => 'application.core.components.Core',
+        ),
+        'assetManager' => array(
+            'class' => 'application.core.components.TAssetManager'
+        ),
+        'request'=>array(
+            'class' => 'application.core.components.THttpRequest',
+        ),
+        'storage' => array(
+            'class' => 'core.components.TStorage',
+        ),
+        'image' => array(
+            'class' => 'core.components.TImage',
+        ),
+        'tokenizer' => array(
+            'class' => 'core.components.TTokenizer'
+        ),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
@@ -79,6 +99,17 @@ return array(
 				
 		// 	),
 		// ),
+		'cache' => array(
+            'class'=>'CMemCache',  
+            'servers'=>array(  
+                array(  
+                    'host'=>'127.0.0.1',  
+                    'port'=>11211,  
+                    'weight'=>100,
+                    'timeout' => 3,
+                ),  
+            ),
+        ),
 		'log' => array(
             'class'=>'CLogRouter',
             'routes'=>array(

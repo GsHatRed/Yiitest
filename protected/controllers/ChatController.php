@@ -10,7 +10,6 @@ class ChatController extends Controller{
 			),
 			'criteria'=>array(
 				'order' =>  'date desc',
-				'limit' => '20'
 				),
 		));
 		if(isset($_POST['ajax']) && $_POST['ajax']==='chat-form')
@@ -38,15 +37,18 @@ class ChatController extends Controller{
 
 	}
 
-	public function actionPrise(){
+	public function actionPraise(){
+		if(Yii::app()->user->isGuest)
+			echo '请先登录';
 		$id = $_POST['id'];
-		$model = $this->loadModelById($id);
-		$model->priseCount();
-		//if($model->save()){
+		$isCheckPraise = Praise::checkIsPraise($id,'chat');
+		if(!$isCheckPraise){
+			$model = $this->loadModelById($id);
+			$model->praiseCount();
 			echo 'ok';
-		// }else{
-		// 	echo 'no';
-		// }
+		}else{
+			echo '已经点过了!';
+		}
 	}
 
 	public function loadModelByUser(){
