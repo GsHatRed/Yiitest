@@ -101,3 +101,11 @@ CREATE TABLE `praise` (
   `type` varchar(20) NOT NULL DEFAULT '0' COMMENT '0支持,1反对',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `tbl_contact` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `body` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
