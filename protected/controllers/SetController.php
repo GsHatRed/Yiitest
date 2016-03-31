@@ -42,7 +42,7 @@ class SetController extends Controller
 	 */
 	public function actionUpdate()
 	{
-		$model = $this->loadModel();
+		$model = $this->loadModel(Yii::app()->user->id);
 		$profile_model = $model->profile;
 		if(isset($_POST['ajax']) && $_POST['ajax']==='profile-form')
 		{
@@ -59,7 +59,7 @@ class SetController extends Controller
 			if( is_object($image) && get_class($image) === 'CUploadedFile' ){  
 			    $profile_model->avatar = md5($image->name).'.'.explode('image/', $image->type)[1];  
 			}else{  
-			    $profile_model->avatar = 'NoPic.jpg';  
+			    //$profile_model->avatar = 'NoPic.jpg';  
 			}  
 
 			if($model->save() && $profile_model->save())

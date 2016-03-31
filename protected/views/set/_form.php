@@ -170,7 +170,15 @@ Yii::app()->clientScript->registerCss($this->id, '
 
         </div>
     <div class="row buttons">
-        <?php echo CHtml::submitButton('修改'); ?>
+        <?php 
+            $this->widget('bootstrap.widgets.TbButton', array(
+                'label' => '修改',
+                'size' => 'larger',
+                'htmlOptions' => array(
+                        'onclick' => 'js: $("#profile-form").submit()',
+                    ),
+            ));
+        ?>
     </div>
     </div>
 
