@@ -223,12 +223,15 @@ class PostController extends Controller
 		}
 		if(isset($_POST['Comment']))
 		{
+			$comment->author = Yii::app()->user->id;
 			$comment->attributes=$_POST['Comment'];
 			if($post->addComment($comment))
 			{
 				if($comment->status==Comment::STATUS_PENDING)
-					Yii::app()->user->setFlash('commentSubmitted','Thank you for your comment. Your comment will be posted once it is approved.');
+					Yii::app()->user->setFlash('commentSubmitted','感谢评论,我会尽快审核!.');
 				$this->refresh();
+			}else{
+				Yii::app()->user->setFlash('commentSubmitted','请先登录.');
 			}
 		}
 		return $comment;

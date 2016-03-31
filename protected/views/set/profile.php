@@ -1,5 +1,5 @@
 <span>
-    您是本站第<?=$model->id?>位用戶。
+    本站第<?=$model->id?>位用戶。
     在線時長:<?=floor($model->profile->online_time/60)?>小時<?=$model->profile->online_time%60?>分鐘。
 </span>
 <?php
@@ -7,6 +7,7 @@ $this->widget('bootstrap.widgets.TbButton', array(
         'label' => '修改',
         'size' => 'larger',
         'url' => $this->createUrl("update"),
+        'visible' => $visible,
     ));
 $this->widget('bootstrap.widgets.TbDetailView', array(
     'data' => $model,

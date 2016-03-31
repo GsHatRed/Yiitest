@@ -23,24 +23,24 @@ Yii::app()->getClientScript()->registerScript('delete', $deleteJS);
 	)); ?>
 
 	<div class="author">
-		<?php echo $data->authorLink; ?> says on
+		<?php echo $data->authorLink; ?> 发表在
 		<?php echo CHtml::link(CHtml::encode($data->post->title), $data->post->url); ?>
 	</div>
 
 	<div class="time">
 		<?php if($data->status==Comment::STATUS_PENDING): ?>
-			<span class="pending">Pending approval</span> |
-			<?php echo CHtml::linkButton('Approve', array(
+			<span class="pending">待审批</span> |
+			<?php echo CHtml::linkButton('通过', array(
 				'submit'=>array('comment/approve','id'=>$data->id),
 			)); ?> |
 		<?php endif; ?>
-		<?php echo CHtml::link('Update',array('comment/update','id'=>$data->id)); ?> |
-		<?php echo CHtml::link('Delete',array('comment/delete','id'=>$data->id),array('class'=>'delete')); ?> |
+		<?php echo CHtml::link('更新',array('comment/update','id'=>$data->id)); ?> |
+		<?php echo CHtml::link('删除',array('comment/delete','id'=>$data->id),array('class'=>'delete')); ?> |
 		<?php echo date('F j, Y \a\t h:i a',$data->create_time); ?>
 	</div>
 
 	<div class="content">
-		<?php echo nl2br(CHtml::encode($data->content)); ?>
+		<?php echo $data->content; ?>
 	</div>
 
 </div><!-- comment -->

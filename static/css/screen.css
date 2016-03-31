@@ -238,10 +238,10 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
 .taglist a{text-decoration: none;}
 .active{  background-color: #4DABB8;}
 .active a{color: #fff}
-.chat{  width: 50%;border: 1px solid #ccc;border-radius: 10px;padding: 5px;margin: 5px}
+.chat{  width: 50%;border: 1px solid #ccc;border-radius: 10px;padding: 5px;margin: 5px;min-height: 85px}
 .chat .name{padding-left: 15px}
 .chat .name img{width: 20px;height: 20px}
-.chat .content{text-align: center;}
+.chat .content{text-align: center;display: block;  min-height: 20px;}
 .chat .time{text-align: left;margin-left: 10px;}
 .chat .right{float: right;margin-right: 20px}
 #chat .items{display: inline-block;}

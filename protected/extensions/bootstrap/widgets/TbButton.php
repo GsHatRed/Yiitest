@@ -149,7 +149,7 @@ class TbButton extends CWidget
 	{
 		if (false === $this->visible)
 			return;
-
+		Yii::app()->bootstrap->registerAssetCss('bootstrap_show.css');
 		$classes = array('btn');
 
 		$validTypes = array(self::TYPE_LINK, self::TYPE_PRIMARY, self::TYPE_INFO, self::TYPE_SUCCESS,

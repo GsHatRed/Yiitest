@@ -50,6 +50,7 @@ class CommentController extends Controller
 		}
 		if(isset($_POST['Comment']))
 		{
+			//$model->author = User::getNameById(Yii::app()->user->id);
 			$model->attributes=$_POST['Comment'];
 			if($model->save())
 				$this->redirect(array('index'));

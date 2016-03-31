@@ -41,9 +41,9 @@ class Comment extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('content, author', 'required'),
-			array('author, email, url', 'length', 'max'=>128),
-			array('email','email'),
-			array('url','url'),
+			array('author,', 'length', 'max'=>128),
+			//array('email','email'),
+			//array('url','url'),
 		);
 	}
 
@@ -102,10 +102,12 @@ class Comment extends CActiveRecord
 	 */
 	public function getAuthorLink()
 	{
-		if(!empty($this->url))
-			return CHtml::link(CHtml::encode($this->author),$this->url);
+		$url = Yii::app()->createUrl('/set/profile',array('id'=>$this->author));
+		$author = User::getNameById($this->author);
+		if(!empty($url))
+			return CHtml::link(CHtml::encode($author),$url);
 		else
-			return CHtml::encode($this->author);
+			return CHtml::encode($author);
 	}
 
 	/**

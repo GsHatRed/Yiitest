@@ -102,13 +102,15 @@ class SetController extends Controller
 	/**
 	 * Lists all models.
 	 */
-	public function actionProfile()
+	public function actionProfile($id = null)
 	{
+		$id = empty($id) ? (empty(Yii::app()->user->id) ? '1' : Yii::app()->user->id) : (int)$id;
+		$visible = $id==Yii::app()->user->id ? true : false;
 		$criteria = new CDbCriteria(array(
-			'condition'=>'t.id="'.Yii::app()->user->id.'"',
+			'condition'=>'t.id="'.$id.'"',
 			'with'=>'profile',
 		));
-		$model = $this->loadModel();
+		$model = $this->loadModel($id);
 		$dataProvider = new CActiveDataProvider('User', array(
 			'pagination'=>array(
 				'pageSize'=>Yii::app()->params['postsPerPage'],
@@ -118,6 +120,7 @@ class SetController extends Controller
 		$this->render('profile',array(
 			'model' => $model,
 			'dataProvider' => $dataProvider,
+			'visible' => $visible
 		));
 	}
 
@@ -127,12 +130,12 @@ class SetController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 */
-	public function loadModel()
+	public function loadModel($id)
 	{
 		if($this->_model===null)
 		{
 			if(!Yii::app()->user->isGuest)
-				$this->_model=User::model()->findbyPk(Yii::app()->user->id);
+				$this->_model=User::model()->findbyPk($id);
 			if($this->_model===null)
 				throw new CHttpException(404,'The requested page does not exist.');
 		}

@@ -13,7 +13,14 @@
             if(Yii::app()->user->isGuest){
                 echo CHtml::link('請先登錄',Yii::app()->createURL('/site/login'));
             }else{
-                echo CHtml::submitButton('發言'); 
+                $this->widget('bootstrap.widgets.TbButton', array(
+                    'buttonType' => 'button',
+                    'type' => 'danger',
+                    'label' => '發言',
+                    'htmlOptions' => array(
+                        'onclick' => 'js: $("#chat-form").submit()',
+                    ),
+                ));
             }
         ?>
     </div>

@@ -3,7 +3,7 @@
 		<?php echo CHtml::link(CHtml::encode($data->title), $data->url); ?>
 	</div>
 	<div class="author">
-		發佈人:<?php echo $data->author->username . ' 發佈時間:' . date('F j, Y',$data->create_time); ?>
+		發佈人:<a href="<?=Yii::app()->createUrl('/set/profile',array('id'=>$data->author_id));?>"><?php echo User::getNameById($data->author_id) . '</a> 發佈時間:' . date('F j, Y',$data->create_time); ?>
 	</div>
 	<div class="content">
 		<?php
