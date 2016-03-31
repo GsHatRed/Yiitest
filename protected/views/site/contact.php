@@ -24,7 +24,7 @@ $this->breadcrumbs=array(
 <?php $form=$this->beginWidget('CActiveForm'); ?>
 
 	<?php echo $form->errorSummary($model); ?>
-
+<?php if(Yii::app()->user->isGuest): ?>
 	<div class="row">
 		<?php echo $form->labelEx($model,'name'); ?>
 		<?php echo $form->textField($model,'name'); ?>
@@ -34,7 +34,7 @@ $this->breadcrumbs=array(
 		<?php echo $form->labelEx($model,'email'); ?>
 		<?php echo $form->textField($model,'email'); ?>
 	</div>
-
+<?php endif;?>
 	<div class="row">
 		<?php echo $form->labelEx($model,'subject'); ?>
 		<?php echo $form->textField($model,'subject',array('size'=>60,'maxlength'=>128)); ?>

@@ -44,8 +44,13 @@ class SiteController extends Controller
 	{
 		$model = new Contact;
 		$model->unsetAttributes();
+		
 		if(isset($_POST['Contact']))
 		{
+			if(!Yii::app()->user->isGuest){
+				$model->name = User::getNameById(Yii::app()->user->id);
+				$model->email = Yii::app()->user->email;
+			}
 			$model->attributes=$_POST['Contact'];
 			if($model->validate() && $model->save())
 			{
