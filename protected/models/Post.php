@@ -17,6 +17,7 @@ class Post extends CActiveRecord
 	const STATUS_ARCHIVED=3;
 
 	private $_oldTags;
+	public $comment;
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -81,6 +82,7 @@ class Post extends CActiveRecord
 			'create_time' => '創建時間',
 			'update_time' => '更新時間',
 			'author_id' => '作者',
+			'comment' => '評論數'
 		);
 	}
 
@@ -91,7 +93,7 @@ class Post extends CActiveRecord
 	{
 		return Yii::app()->createUrl('post/view', array(
 			'id'=>$this->id,
-			'title'=>$this->title,
+			//'title'=>$this->title,
 		));
 	}
 

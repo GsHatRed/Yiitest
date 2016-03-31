@@ -3,25 +3,40 @@
     在線時長:<?=floor($model->profile->online_time/60)?>小時<?=$model->profile->online_time%60?>分鐘。
 </span>
 <?php
-$this->widget('bootstrap.widgets.TbButton', array(
+    $this->widget('bootstrap.widgets.TbButton', array(
         'label' => '修改',
         'size' => 'larger',
         'url' => $this->createUrl("update"),
         'visible' => $visible,
     ));
-$this->widget('bootstrap.widgets.TbDetailView', array(
-    'data' => $model,
-    'attributes' =>  array(
-        //'id',
-        'username',
-        array('name' => '頭像', 'value' => CHtml::image(Profile::avatarHelper($model->profile->avatar)), 'type' => 'raw'),
+    $this->widget('bootstrap.widgets.TbDetailView', array(
+        'data' => $model,
+        'attributes' =>  array(
+            //'id',
+            'username',
+            array('name' => '頭像', 'value' => CHtml::image(Profile::avatarHelper($model->profile->avatar)), 'type' => 'raw'),
 
-        array('name' => '暱稱', 'value' => $model->profile->name),
-        'email',
-        array('name' => '手機號', 'value' => $model->profile->mobile),
-        array('name' => 'QQ', 'value' => $model->profile->qq),
-        
-        array('name' => '簡介', 'value' => $model->profile->profiles),
-            ) 
+            array('name' => '暱稱', 'value' => $model->profile->name),
+            'email',
+            array('name' => '手機號', 'value' => $model->profile->mobile),
+            array('name' => 'QQ', 'value' => $model->profile->qq),
+            
+            array('name' => '簡介', 'value' => $model->profile->profiles),
+                ) 
+    ));
+?>
+<span>最近分享</span>
+<?php 
+$this->widget('bootstrap.widgets.TbGridView', array(
+    'dataProvider' => $article,
+    'columns' =>  array(
+        array(
+            'name' => 'title',
+            'value' => 'CHtml::link($data->title,"",array("class"=>"title","href"=> $data->url))',
+            'type'=>'raw',
+        ),
+        array('name'=>'create_time','value'=>'date("Y-m-d",$data->create_time)'),
+        array('name'=>'comment','value'=>'$data->commentCount')
+    )
 ));
 ?>

@@ -117,10 +117,20 @@ class SetController extends Controller
 			),
 			'criteria'=>$criteria,
 		));
+		$criteria2 = new CDbCriteria(array(
+			'condition'=>'author_id="'.$id.'" and status="2"',
+		));
+		$article = new CActiveDataProvider('Post', array(
+			'pagination'=>array(
+				'pageSize'=>Yii::app()->params['postsPerPage'],
+			),
+			'criteria'=>$criteria2,
+		));
 		$this->render('profile',array(
 			'model' => $model,
 			'dataProvider' => $dataProvider,
-			'visible' => $visible
+			'visible' => $visible,
+			'article' => $article
 		));
 	}
 
