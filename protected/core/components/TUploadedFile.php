@@ -19,7 +19,6 @@
  * @property boolean $hasError 是否发生错误.
  * @property string $extensionName 上传文件扩展名.
  *
- * @author lx <lx@tongda2000.com>
  * @package application.core
  */
 class TUploadedFile extends CComponent {

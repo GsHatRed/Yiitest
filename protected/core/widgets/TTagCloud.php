@@ -2,7 +2,6 @@
 /**
  * TTagCloud class file.
  *
- * @author fl <fl@tongda2000.com>
  */
 
 Yii::import('core.widgets.TWidget');

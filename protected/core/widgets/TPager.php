@@ -3,7 +3,6 @@
 /**
  * TPager class file.
  *
- * @author ZMM
  *
  * TPager组件包装类.
  *

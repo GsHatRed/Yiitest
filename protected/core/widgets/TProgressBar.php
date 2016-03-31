@@ -2,7 +2,6 @@
 /**
  * 带遮罩的进度条
  *
- * @author fl <fl@tongda2000.com>
  */
 
 Yii::import('core.widgets.TWidget');

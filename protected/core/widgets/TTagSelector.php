@@ -2,7 +2,6 @@
 /**
  * TTagSelector class file.
  * 
- * @author fl <fl@tongda2000.com>
  */
 
 /**

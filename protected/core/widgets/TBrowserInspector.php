@@ -3,7 +3,6 @@
 /**
  * 浏览器检查组件
  *
- * @author lx <lx@tongda2000.com>
  */
 Yii::import('core.widgets.TWidget');
 

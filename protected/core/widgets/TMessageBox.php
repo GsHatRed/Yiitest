@@ -3,7 +3,6 @@
 /**
  * 提示框.
  *
- * @author zmm
  */
 Yii::import('core.widgets.TWidget');
 

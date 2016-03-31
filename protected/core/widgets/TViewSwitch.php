@@ -3,7 +3,6 @@
 /**
  * 视图选择按钮
  *
- * @author lx <lx@tongda2000.com>
  */
 Yii::import('core.widgets.TWidget');
 

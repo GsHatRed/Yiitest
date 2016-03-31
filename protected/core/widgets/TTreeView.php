@@ -2,7 +2,6 @@
 /**
  * TTreeView class file.
  *
- * @author lx <lx@tongda2000.com>
  * @copyright (c) 2013, Tongda Tech (http://www.tongda2000.com)
  * @version $id$
  */

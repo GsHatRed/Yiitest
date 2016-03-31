@@ -2,7 +2,6 @@
 /**
  * 应用操作日志类文件
  * 
- * @author lx <lx@tongda2000.com>
  */
 Yii::import("core.models.DataLog");
 

@@ -3,7 +3,6 @@
 /**
  * 全局权限行为类
  *
- * @author lx <lx@tongda2000.com>
  */
 class DataPrivBehavior extends CActiveRecordBehavior {
     /* 权限表前缀 */

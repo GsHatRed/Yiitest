@@ -3,7 +3,6 @@
 /**
  * TImage class file.
  *
- * @author lx <lx@tongda2000.com>
  */
 Yii::import('core.components.image_drivers.Image');
 class TImage extends TComponentFactory {
