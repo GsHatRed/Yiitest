@@ -1,18 +1,30 @@
 <?php
 
 /**
- * ContactForm class.
- * ContactForm is the data structure for keeping
+ * Contact class.
+ * Contact is the data structure for keeping
  * contact form data. It is used by the 'contact' action of 'SiteController'.
  */
-class ContactForm extends CFormModel
+class Contact extends CActiveRecord
 {
-	public $name;
-	public $email;
-	public $subject;
-	public $body;
 	public $verifyCode;
 
+	/**
+	 * Returns the static model of the specified AR class.
+	 * @return static the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
+
+	/**
+	 * @return string the associated database table name
+	 */
+	public function tableName()
+	{
+		return '{{contact}}';
+	}
 	/**
 	 * Declares the validation rules.
 	 */
@@ -20,7 +32,7 @@ class ContactForm extends CFormModel
 	{
 		return array(
 			// name, email, subject and body are required
-			array('email, subject, body', 'required'),
+			array('name, email, subject, body', 'required'),
 			// email has to be a valid email address
 			array('email', 'email'),
 			array('subject+email', 'uniqueMulti','message'=>'请勿重复提交'),

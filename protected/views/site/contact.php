@@ -66,5 +66,5 @@ $this->breadcrumbs=array(
 
 <?php endif; ?>
 <script type="text/javascript">
-    CKEDITOR.replace( 'ContactForm_body' );
+    CKEDITOR.replace( 'Contact_body' );
 </script>

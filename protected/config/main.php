@@ -38,20 +38,8 @@ return array(
 		'core' => array(
             'class' => 'application.core.components.Core',
         ),
-        'assetManager' => array(
-            'class' => 'application.core.components.TAssetManager'
-        ),
-        'request'=>array(
-            'class' => 'application.core.components.THttpRequest',
-        ),
-        'storage' => array(
-            'class' => 'core.components.TStorage',
-        ),
         'image' => array(
             'class' => 'core.components.TImage',
-        ),
-        'tokenizer' => array(
-            'class' => 'core.components.TTokenizer'
         ),
 		'user'=>array(
 			// enable cookie-based authentication
@@ -78,6 +66,7 @@ return array(
                 'class'=>'ext.bootstrap.components.Bootstrap',  
         ),  
 		'urlManager' => array(
+			//'class' => 'ext.urlmanager.UrlManager',
             'urlFormat' => 'path',
             'showScriptName' => false,
             'rules' => array(
@@ -87,6 +76,12 @@ return array(
                 '<controller:\w+>/<id:\d+>/*' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>/*' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>/*' => '<controller>/<action>',
+                // REST patterns
+		        array('api/list', 'pattern'=>'api/<model:\w+>', 'verb'=>'GET'),
+		        array('api/view', 'pattern'=>'api/<model:\w+>/<id:\d+>', 'verb'=>'GET'),
+		        array('api/update', 'pattern'=>'api/<model:\w+>/<id:\d+>', 'verb'=>'PUT'),
+		        array('api/delete', 'pattern'=>'api/<model:\w+>/<id:\d+>', 'verb'=>'DELETE'),
+		        array('api/create', 'pattern'=>'api/<model:\w+>', 'verb'=>'POST'),
             ),
         ),
 		// 'log'=>array(

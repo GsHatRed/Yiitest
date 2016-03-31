@@ -30,7 +30,7 @@ class uniqueMulti extends CValidator
 				$where .= ' AND ';
 			}
 		}
-		$exists = User::model()->find($where);
+		$exists = Contact::model()->find($where);
 		if(!empty($exists)) {
 			$this->addError($object, $attributes[0], $this->message);
 		}

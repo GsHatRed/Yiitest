@@ -42,16 +42,19 @@ class SiteController extends Controller
 	 */
 	public function actionContact()
 	{
-		$model=new ContactForm;
-		if(isset($_POST['ContactForm']))
+		$model = new Contact;
+		$model->unsetAttributes();
+		if(isset($_POST['Contact']))
 		{
-			$model->attributes=$_POST['ContactForm'];
-			if($model->validate())
+			$model->attributes=$_POST['Contact'];
+			if($model->validate() && $model->save())
 			{
 				$headers="From: {$model->email}\r\nReply-To: {$model->email}";
 				mail(Yii::app()->params['adminEmail'],$model->subject,$model->body,$headers);
-				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
+				Yii::app()->user->setFlash('contact','感谢您的意见,我会尽快回复!');
 				$this->refresh();
+			}else{
+				//var_dump($model->errors);
 			}
 		}
 		$this->render('contact',array('model'=>$model));
