@@ -112,9 +112,6 @@ class SetController extends Controller
 		));
 		$model = $this->loadModel($id);
 		$dataProvider = new CActiveDataProvider('User', array(
-			'pagination'=>array(
-				'pageSize'=>Yii::app()->params['postsPerPage'],
-			),
 			'criteria'=>$criteria,
 		));
 		$criteria2 = new CDbCriteria(array(

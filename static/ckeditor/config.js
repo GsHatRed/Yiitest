@@ -29,6 +29,7 @@ config.width = 600;
 config.height = 200;  
 config.uiColor = '#AADC6E';  
 config.toolbar = 'Full'; 
+config.enterMode = 2;
 	// The default plugins included in the basic setup define some buttons that
 	// are not needed in a basic editor. They are removed here.
 	//config.removeButtons = 'Cut,Copy,Paste,Undo,Redo,Anchor,Underline,Strike,Subscript,Superscript';
