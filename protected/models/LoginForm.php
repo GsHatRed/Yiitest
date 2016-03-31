@@ -74,6 +74,8 @@ class LoginForm extends CFormModel
 			$profile->last_visit_ip = Yii::app()->request->userHostAddress;
 			$profile->last_visit_time = time();
 			$profile->save();
+			$user->status = 1;
+			$user->save();
 			$this->_identity->setState('username', $user->username);
             $this->_identity->setState('id', $user->id);
             $this->_identity->setState('email', $user->email);

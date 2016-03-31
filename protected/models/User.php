@@ -66,6 +66,7 @@ class User extends CActiveRecord
 			'username' => '用戶名',
 			'password' => '密碼',
 			'email' => '郵箱',
+			'status' => '狀態'
 		);
 	}
 
@@ -106,5 +107,20 @@ class User extends CActiveRecord
 			else
 				return $model->profile->name;
 		}
+	}
+	public function getUrl()
+	{
+		return Yii::app()->createUrl('/set/profile', array(
+			'id'=>$this->id,
+		));
+	}
+	public static function getTotal(){
+		return self::model()->count();
+	}
+	public static function getOnlineNum(){
+		return self::model()->count('status=:status',array(':status'=>1));
+	}
+	public static function getOnlineUser(){
+		return self::model()->findAll('status=:status',array(':status'=>1));
 	}
 }

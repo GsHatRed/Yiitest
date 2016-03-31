@@ -43,6 +43,13 @@ body
 #header,#footer{
 	border-image: linear-gradient(90deg, #E50743, #F9870F, #E8ED30, #3FA62E, #3BB4D7, #2F4D9E, #71378A);
 	border-image-slice: 1;
+	width: 100%;
+	z-index: 1000;
+}
+#header{
+	position: fixed;
+	left: 0;
+	top: 0;
 }
 
 #logo

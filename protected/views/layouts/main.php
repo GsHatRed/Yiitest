@@ -45,13 +45,34 @@
 	<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 		'links'=>$this->breadcrumbs,
 	)); ?><!-- breadcrumbs -->
-
-	<?php echo $content; ?>
+	<div class="panel panel-info online">
+		<div class="panel-heading">在线<br><em><?=User::getOnlineNum()?></em>人</div>
+		<div class="panel-body">
+		    <ul class="online-scroll list-unstyled ps-container ps-theme-default ps-active-y" style="height: 443px;" data-ps-id="137d9bf9-205a-ad95-5cec-a529472e5734">
+				<?php foreach( User::getOnlineUser() as $key => $data ): ?>
+				<li>
+					<a href="<?=$data->url?>" rel="author" data-original-title="" title="">
+					<img src="<?=Profile::avatarByUserId($data->id)?>" alt="gotokfc">
+					</a>
+				</li>
+				<div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;">
+					<div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+				</div>
+				<div class="ps-scrollbar-y-rail" style="top: 0px; height: 443px; right: 3px;">
+					<div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 70px;"></div>
+				</div>
+				<?php endforeach;?>
+			</ul>
+		</div>
+		<div class="panel-footer">共<br><em><?=User::getTotal()?></em>人</div>
+	</div>
+		<?php echo $content; ?>
 
 	<div id="footer">
 		<?php echo Yii::app()->params['copyrightInfo']; ?><br/>
 		All Rights Reserved.<br/>
 		<?php echo Yii::powered(); ?>
+		<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/static/css/panel.css" />
 	</div><!-- footer -->
 
 </div><!-- page -->
