@@ -25,7 +25,9 @@ body
 {
 	padding: 20px;
 }
-
+.container{
+	  padding: 15px 0 0 0;
+}
 #sidebar
 {
 	padding: 20px;
@@ -209,8 +211,16 @@ div.breadcrumbs span
 .post
 {
 	margin: 0 0 20px;
+	position: relative;
 }
-
+.post img.avatar{
+	position: absolute;
+	left: -80px;
+	width: 70px;
+	height: 70px;
+	border: 1px solid #4C99C5;
+	border-radius: 35px;
+}
 .post .title
 {
 	font-size: 1.5em;

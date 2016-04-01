@@ -1,4 +1,5 @@
 <div class="post">
+	<img class="avatar" src="<?=Profile::avatarByUserId($data->author_id)?>" />
 	<div class="title">
 		<?php echo CHtml::link(CHtml::encode($data->title), $data->url); ?>
 	</div>
