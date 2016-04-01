@@ -8,3 +8,16 @@
 .online img { width: 38px; height: 38px; border-radius: 50%; border: #fff solid 1px; }
 .online p { font-size: 10px; color: #16A314; text-align: center; margin: 2px 0 0 0; }
 .online .ps-container .ps-scrollbar-y-rail { display: none; }
+
+.avatar-list { margin: -8px; }
+.avatar-list li { list-style: none; float: left; width: 33%; margin: 5px 0; text-align: center; }
+.avatar-list li img { border-radius: 50%; width: 48px; height: 48px; padding: 1px; border: #ddd solid 1px; }
+.panel-avatar{position: fixed;left: 55px;width: 185px}
+.panel .panel-heading .panel-title { margin: 0; font-size: 14px; display: inline; }
+.panel .panel-heading .pull-right { font-size: 12px; margin:0; padding:0; }
+.panel .panel-heading .pull-right .fa { font-size: 14px; }
+.panel  ul { padding: 0; margin: 0; }
+.panel  ul li:last-child { border-bottom: none; }
+.panel-body {
+  padding: 5px;
+}

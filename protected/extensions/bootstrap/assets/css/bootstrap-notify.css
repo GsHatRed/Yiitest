@@ -1,7 +1,7 @@
 .notifications{position:fixed;height:16px;line-height:16px;}
-.notifications.top-right{right:10px;top:5px;}
-.notifications.top-left{left:10px;top:5px;}
-.notifications.top-center{left:45%;top:5px;}
+.notifications.top-right{right:10px;top:50px;}
+.notifications.top-left{left:10px;top:50px;}
+.notifications.top-center{left:45%;top:50px;}
 .notifications.bottom-left{left:10px;bottom:5px;}
 .notifications.bottom-right{right:10px;bottom:5px;}
 .notifications>div{position:relative;z-index:9999;margin:5px;white-space: nowrap; }

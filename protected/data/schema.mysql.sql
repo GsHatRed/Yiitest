@@ -36,7 +36,7 @@ CREATE TABLE tbl_comment
 	content TEXT NOT NULL,
 	status INTEGER NOT NULL,
 	create_time INTEGER,
-	author VARCHAR(128) NOT NULL,
+	author INTEGER NOT NULL,
 	email VARCHAR(128) NOT NULL,
 	url VARCHAR(128),
 	post_id INTEGER NOT NULL,
@@ -63,7 +63,7 @@ INSERT INTO tbl_post (title, content, status, create_time, update_time, author_i
 Feel free to try this system by writing new posts and posting comments.',2,1230952187,1230952187,1,'yii, blog');
 INSERT INTO tbl_post (title, content, status, create_time, update_time, author_id, tags) VALUES ('A Test Post', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 2,1230952187,1230952187,1,'test');
 
-INSERT INTO tbl_comment (content, status, create_time, author, email, post_id) VALUES ('This is a test comment.', 2, 1230952187, 'Tester', 'tester@example.com', 2);
+INSERT INTO tbl_comment (content, status, create_time, author, email, post_id) VALUES ('This is a test comment.', 2, 1230952187, '1', 'tester@example.com', 2);
 
 INSERT INTO tbl_tag (name) VALUES ('yii');
 INSERT INTO tbl_tag (name) VALUES ('blog');
@@ -109,3 +109,10 @@ CREATE TABLE `tbl_contact` (
   `body` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+CREATE TABLE `focus` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `f_user_id` int(11) NOT NULL,
+  `t_user_id` int(11) NOT NULL,
+  `type` tinyint(2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
