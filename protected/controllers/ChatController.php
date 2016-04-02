@@ -38,8 +38,10 @@ class ChatController extends Controller{
 	}
 
 	public function actionPraise(){
-		if(Yii::app()->user->isGuest)
+		if(Yii::app()->user->isGuest){
 			echo '请先登录';
+			Yii::app()->end();
+		}
 		$id = $_POST['id'];
 		$isCheckPraise = Praise::checkIsPraise($id,'chat');
 		if(!$isCheckPraise){

@@ -112,6 +112,12 @@ return array(
                     'class'=>'ext.yii-debug-toolbar.YiiDebugToolbarRoute',
                     'ipFilters'=>array('127.0.0.1'),
                 ),
+          //       array(  
+		        //     'class' => 'CFileLogRoute',  
+		        //     'levels' => 'error, warning',  
+		        //     'categories'=> '*',  
+		        //     'logFile'=> 'error.log',  
+		        // ), 
             ),
         ),
 	),
