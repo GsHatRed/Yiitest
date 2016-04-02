@@ -105,7 +105,7 @@ class SiteController extends Controller
 		$omin = floor($time / 60);
 		$osec = $time % 60;
 		$otime = $osec>50 ? $omin+1 : $omin;
-		$profile->online_time = $otime;
+		$profile->online_time = $profile->online_time+$otime;
 		$profile->save();
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);

@@ -66,7 +66,7 @@ $this->widget('bootstrap.widgets.TbListView', array(
                     $.notify({type: 'success', message: {text: '点赞成功！', icon: 'icon-checkmark'}}).show();
                     el.html(Number(el.html())+1);
                 }else{
-                    $.notify({type: 'erroe', message: {text: result, icon: 'icon-checkmark'}}).show();
+                    $.notify({type: 'error', message: {text: result, icon: 'icon-close'}}).show();
                 }
             });
         })

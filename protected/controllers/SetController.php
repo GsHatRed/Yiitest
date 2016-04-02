@@ -15,7 +15,7 @@ class SetController extends Controller
 	public function filters()
 	{
 		return array(
-			'accessControl', // perform access control for CRUD operations
+			//'accessControl', // perform access control for CRUD operations
 		);
 	}
 
@@ -27,6 +27,10 @@ class SetController extends Controller
 	public function accessRules()
 	{
 		return array(
+			array('allow',  // allow all users to access 'index' and 'view' actions.
+				'actions'=>array('profile'),
+				'users'=>array('*'),
+			),
 			array('allow', // allow authenticated users to access all actions
 				'users'=>array('@'),
 			),
@@ -100,38 +104,78 @@ class SetController extends Controller
 	}
 
 	/**
-	 * Lists all models.
+	 * profile.
 	 */
 	public function actionProfile($id = null)
 	{
 		$id = empty($id) ? (empty(Yii::app()->user->id) ? '1' : Yii::app()->user->id) : (int)$id;
+
 		$visible = $id==Yii::app()->user->id ? true : false;
+		$model = $this->loadModel($id);
+
 		$criteria = new CDbCriteria(array(
 			'condition'=>'t.id="'.$id.'"',
 			'with'=>'profile',
 		));
-		$model = $this->loadModel($id);
 		$dataProvider = new CActiveDataProvider('User', array(
 			'criteria'=>$criteria,
 		));
-		$criteria2 = new CDbCriteria(array(
+
+		$carticle = new CDbCriteria(array(
 			'condition'=>'author_id="'.$id.'" and status="2"',
 		));
 		$article = new CActiveDataProvider('Post', array(
 			'pagination'=>array(
 				'pageSize'=>Yii::app()->params['postsPerPage'],
 			),
-			'criteria'=>$criteria2,
+			'criteria'=>$carticle,
 		));
+
+		$ctfocus = new CDbCriteria(array(
+			'condition'=>'f_user_id="'.$id.'" and type="0"',
+		));
+		$tfocus = new CActiveDataProvider('Focus', array(
+			'pagination'=>array(
+				'pageSize'=>Yii::app()->params['focus'],
+			),
+			'criteria'=>$ctfocus,
+		));
+		$cffocus = new CDbCriteria(array(
+			'condition'=>'t_user_id="'.$id.'" and type="0"',
+		));
+		$ffocus = new CActiveDataProvider('Focus', array(
+			'pagination'=>array(
+				'pageSize'=>Yii::app()->params['focus'],
+			),
+			'criteria'=>$cffocus,
+		));
+		$isFocus = Focus::isFocus($id, 0, 'no');
 		$this->render('profile',array(
 			'model' => $model,
 			'dataProvider' => $dataProvider,
 			'visible' => $visible,
-			'article' => $article
+			'article' => $article,
+			'isFocus' => $isFocus,
+			'ffocus' => $ffocus,
+			'tfocus' => $tfocus
 		));
 	}
-
-
+	/**
+	 * 关注
+	 */
+	public function actionFocus(){
+		if(empty(Yii::app()->user->id)){
+			echo '請先登錄';
+		}else if(!is_numeric($_POST['id']) && !is_numeric($_POST['type'])){
+			echo '鬧毛線?';
+		}else{
+			if(Focus::isFocus($_POST['id'], $_POST['type'])){
+				echo '請勿重複點擊,稍後再試!';
+			}else{
+				echo 'ok';
+			}
+		}
+	}
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
@@ -141,7 +185,7 @@ class SetController extends Controller
 	{
 		if($this->_model===null)
 		{
-			if(!Yii::app()->user->isGuest)
+			//if(!Yii::app()->user->isGuest)
 				$this->_model=User::model()->findbyPk($id);
 			if($this->_model===null)
 				throw new CHttpException(404,'The requested page does not exist.');

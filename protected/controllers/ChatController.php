@@ -42,6 +42,7 @@ class ChatController extends Controller{
 			echo '请先登录';
 			Yii::app()->end();
 		}
+
 		$id = $_POST['id'];
 		$isCheckPraise = Praise::checkIsPraise($id,'chat');
 		if(!$isCheckPraise){

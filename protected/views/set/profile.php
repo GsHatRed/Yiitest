@@ -1,3 +1,7 @@
+<?php $this->renderPartial('_focus',array(
+            'ffocus'=>$ffocus,
+            'tfocus'=>$tfocus
+        )); ?>
 <span>
     本站第<?=$model->id?>位用戶。
     在線時長:<?=floor($model->profile->online_time/60)?>小時<?=$model->profile->online_time%60?>分鐘。
@@ -5,16 +9,31 @@
 <?php
     $this->widget('bootstrap.widgets.TbButton', array(
         'label' => '修改',
-        'size' => 'larger',
+        'type' => "danger",
         'url' => $this->createUrl("update"),
         'visible' => $visible,
+        'htmlOptions' => array('style' => 'float:right;margin-left:5px'),
+    ));
+    $this->widget('bootstrap.widgets.TbButton', array(
+        'label' => '關注',
+        'type' => "info",
+        'visible' => !$isFocus,
+        'url' => 'javascript:void(0);',
+        'htmlOptions' => array('style' => 'float:right;','class' => 'focus'),
+    ));
+    $this->widget('bootstrap.widgets.TbButton', array(
+        'label' => '已關注',
+        'type' => "info",
+        'visible' => $isFocus,
+        'url' => 'javascript:void(0);',
+        'htmlOptions' => array('style' => 'float:right;','class' => 'cancel'),
     ));
     $this->widget('bootstrap.widgets.TbDetailView', array(
         'data' => $model,
         'attributes' =>  array(
             //'id',
             'username',
-            array('name' => '頭像', 'value' => CHtml::image(Profile::avatarHelper($model->profile->avatar)), 'type' => 'raw'),
+            array('name' => '頭像', 'value' => CHtml::image(Profile::avatarByUserId($model->id)), 'type' => 'raw'),
 
             array('name' => '暱稱', 'value' => $model->profile->name),
             'email',
@@ -25,18 +44,43 @@
                 ) 
     ));
 ?>
-<span>最近分享</span>
-<?php 
-$this->widget('bootstrap.widgets.TbGridView', array(
-    'dataProvider' => $article,
-    'columns' =>  array(
-        array(
-            'name' => 'title',
-            'value' => 'CHtml::link($data->title,"",array("class"=>"title","href"=> $data->url))',
-            'type'=>'raw',
-        ),
-        array('name'=>'create_time','value'=>'date("Y-m-d",$data->create_time)'),
-        array('name'=>'comment','value'=>'$data->commentCount')
-    )
-));
-?>
+<?php $this->renderPartial('_article',array(
+            'article'=>$article,
+        )); ?>
+
+<script>
+$(function(){
+    var id = <?=$model->id?>;
+    var cancel = function(){
+        var el = $(this);
+        $.post("<?=Yii::app()->createURL('/set/focus')?>",{'id':id,'type':1},function(result){
+            if(result=='ok'){
+                $.notify({type: 'success', message: {text: '取消關注', icon: 'icon-checkmark'}}).show();
+                var buttons = $('<a style="float:right;" class="btn btn-info focus" id="yw0" href="javascript:void(0);">關注</a>');
+                el.after(buttons);
+                buttons.bind('click',focus);
+                el.remove();
+            }else{
+                $.notify({type: 'error', message: {text: result, icon: 'icon-close'}}).show();
+            }
+        });
+    }
+    var focus = function(){
+        var el = $(this);
+        $.post("<?=Yii::app()->createURL('/set/focus')?>",{'id':id,'type':0},function(result){
+            if(result=='ok'){
+                $.notify({type: 'success', message: {text: '關注成功', icon: 'icon-checkmark'}}).show();
+                var buttons = $("<a style='float:right;' class='btn btn-info focus' id='yw0' href='javascript:void(0);'>已關注</a>");
+                el.after(buttons);
+                buttons.bind('click',cancel);
+                el.remove();
+            }else{
+                $.notify({type: 'error', message: {text: result, icon: 'icon-close'}}).show();
+            }
+        });
+    }
+    $('.focus').bind('click',focus);
+    $('.cancel').bind('click',cancel);
+    
+})
+</script>
