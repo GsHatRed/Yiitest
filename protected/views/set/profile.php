@@ -1,6 +1,7 @@
 <?php $this->renderPartial('_focus',array(
-            'ffocus'=>$ffocus,
-            'tfocus'=>$tfocus
+            'ffocus' => $ffocus,
+            'tfocus' => $tfocus,
+            'model' => $model
         )); ?>
 <span>
     本站第<?=$model->id?>位用戶。

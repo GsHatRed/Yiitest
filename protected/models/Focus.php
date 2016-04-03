@@ -123,4 +123,12 @@ class Focus extends CActiveRecord
 			}
 		}
 	}
+
+	public static function countFfocus($id){
+		return self::model()->count('f_user_id=:fuid',array(':fuid'=>$id));
+	}
+
+	public static function countTfocus($id){
+		return self::model()->count('t_user_id=:tuid',array(':tuid'=>$id));
+	}
 }
