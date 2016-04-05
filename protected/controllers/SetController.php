@@ -106,7 +106,7 @@ class SetController extends Controller
 	/**
 	 * profile.
 	 */
-	public function actionProfile($id = null)
+	public function actionProfile($id = null, $type = null)
 	{
 		$id = empty($id) ? (empty(Yii::app()->user->id) ? '1' : Yii::app()->user->id) : (int)$id;
 
@@ -133,32 +133,50 @@ class SetController extends Controller
 
 		$ctfocus = new CDbCriteria(array(
 			'condition'=>'f_user_id="'.$id.'" and type="0"',
+			'order'=>'create_time DESC',
 		));
 		$tfocus = new CActiveDataProvider('Focus', array(
 			'pagination'=>array(
-				'pageSize'=>Yii::app()->params['focus'],
+				'pageSize'=>empty($type) ? Yii::app()->params['focus'] : Yii::app()->params['fansPage'],
 			),
 			'criteria'=>$ctfocus,
 		));
 		$cffocus = new CDbCriteria(array(
 			'condition'=>'t_user_id="'.$id.'" and type="0"',
+			'order'=>'create_time DESC',
 		));
 		$ffocus = new CActiveDataProvider('Focus', array(
 			'pagination'=>array(
-				'pageSize'=>Yii::app()->params['focus'],
+				'pageSize'=>empty($type) ? Yii::app()->params['focus'] : Yii::app()->params['fansPage'],
 			),
 			'criteria'=>$cffocus,
 		));
 		$isFocus = Focus::isFocus($id, 0, 'no');
-		$this->render('profile',array(
-			'model' => $model,
-			'dataProvider' => $dataProvider,
-			'visible' => $visible,
-			'article' => $article,
-			'isFocus' => $isFocus,
-			'ffocus' => $ffocus,
-			'tfocus' => $tfocus
-		));
+		if(empty($type)){
+			$this->render('profile',array(
+				'model' => $model,
+				'dataProvider' => $dataProvider,
+				'visible' => $visible,
+				'article' => $article,
+				'isFocus' => $isFocus,
+				'ffocus' => $ffocus,
+				'tfocus' => $tfocus
+			));
+		}else if($type == 'fans'){
+			$this->render('_fans',array(
+				'model' => $ffocus,
+				'user' => $model,
+				'typefocus' => 'countTfocus',
+				'type' => '粉絲'
+			));
+		}else{
+			$this->render('_fans',array(
+				'model' => $tfocus,
+				'user' => $model,
+				'typefocus' => 'countFfocus',
+				'type' => '關注'
+			));
+		}
 	}
 	/**
 	 * 关注
@@ -177,6 +195,19 @@ class SetController extends Controller
 		}
 	}
 
+	public function actionFocusEasy($id){
+		if(empty(Yii::app()->user->id)){
+			echo '請先登錄';
+		}else if(!is_numeric($id)){
+			echo '鬧毛線?';
+		}else{
+			if(Focus::isFocusEasy($id)){
+				echo 'delete';
+			}else{
+				echo 'create';
+			}
+		}
+	}
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.

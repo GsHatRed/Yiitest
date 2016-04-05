@@ -58,6 +58,7 @@ class Focus extends CActiveRecord
 			'f_user_id' => '粉絲',
 			't_user_id' => '關注',
 			'type' => '關係',
+			'create_time' => '關注時間'
 		);
 	}
 
@@ -123,12 +124,41 @@ class Focus extends CActiveRecord
 			}
 		}
 	}
-
+	public static function isFocusEasy($id){
+		$isFocus = self::model()->find('f_user_id=:fuid and t_user_id=:tuid',array(':fuid'=>Yii::app()->user->id,':tuid'=>$id));
+		if(empty($isFocus)){
+			$focus = new Focus;
+			$focus->f_user_id = Yii::app()->user->id;
+			$focus->t_user_id = $id;
+			$focus->type = '0';
+			$focus->save();
+			return false;
+		}else{
+			if($isFocus->type == 0){
+				$isFocus->type = 1;
+				$isFocus->save();
+				return true;
+			}else{
+				$isFocus->type = 0;
+				$isFocus->save();
+				return false;
+			}
+		}
+	}
 	public static function countFfocus($id){
-		return self::model()->count('f_user_id=:fuid',array(':fuid'=>$id));
+		return self::model()->count('f_user_id=:fuid and type=:type',array(':fuid'=>$id,':type'=>0));
 	}
 
 	public static function countTfocus($id){
-		return self::model()->count('t_user_id=:tuid',array(':tuid'=>$id));
+		return self::model()->count('t_user_id=:tuid and type=:type',array(':tuid'=>$id,':type'=>0));
+	}
+
+	public function beforeSave(){
+		if(parent::beforeSave()){
+			$this->create_time = time();
+			return true;
+		}else{
+			return false;
+		}
 	}
 }

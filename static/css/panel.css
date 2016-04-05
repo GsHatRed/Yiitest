@@ -21,3 +21,22 @@
 .panel-body {
   padding: 5px;
 }
+
+.media-list .media { border-bottom: #eee solid 1px; padding-bottom: 15px; }
+.media-list .media .media-object { width: 48px; height: 48px; padding: 1px; border: #ddd solid 1px; border-radius: 50%; }
+.media-list .media .media-right a { border-radius: 4px; box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1); font-size: 12px; line-height: 22px; background: #ddd; width: 45px; display: block; height: 48px; text-align: center; color: #999; text-decoration: none;}
+.media-list .media .media-left{  display: table-cell;  vertical-align: top;  width: 48px;height: 48px}
+.media-list .media .media-right a em { font-size: 14px; font-weight: 500; background: #eee; display: block; line-height: 26px; font-style: normal; }
+.media-list .media-body { word-break: break-all; display: table-cell;vertical-align: top;width: 500px;}
+.media-list .media-body .media-heading { font-size: 12px; color: #999; line-height: 1.5em; }
+.media-list .media-body h2.media-heading { font-size: 14px; }
+.media-list .media-body h2.media-heading small { margin-left: 10px; font-size: 12px; color: #999; }
+.media-list .media-body h2.media-heading small a { color: #999; }
+.media-list .media-body h2.media-heading small span { color: orange; }
+.media-list .media-body h2.media-heading small em { font-style: normal; color: #D8582B; }
+.media-list .media-body .hint { color: #999; font-size: 12px; }
+.media-list .media-body .hint em { color: #D8582B; font-style: normal; }
+.media-list .media-body .media { margin-bottom: 10px; }
+.media-list .media-action { margin-top: 10px; font-size: 12px; color: #999; }
+.media-list .media-action a { color: #666; }
+.media-list .media-action .dot { margin: 0 10px; }

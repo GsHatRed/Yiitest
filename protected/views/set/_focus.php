@@ -3,7 +3,7 @@
     <div class="panel-heading">
         <h2 class="panel-title">关注 
         	<span class="badge"><?=Focus::countFfocus($model->id)?></span>
-        	<span class="pull-right"><a href="#">全部关注</a></span>
+        	<span class="pull-right"><a href="<?=Yii::app()->createUrl('/set/profile',array('id'=>$model->id,'type'=>'flow'))?>">全部关注</a></span>
         </h2>
     </div>
     <div class="panel-body">
@@ -21,7 +21,7 @@
     <div class="panel-heading">
         <h2 class="panel-title">粉丝 
         	<span class="badge"><?=Focus::countTfocus($model->id)?></span>
-        	<span class="pull-right"><a href="#">全部粉丝</a></span>
+        	<span class="pull-right"><a href="<?=Yii::app()->createUrl('/set/profile',array('id'=>$model->id,'type'=>'fans'))?>">全部粉丝</a></span>
         </h2>
     </div>
     <div class="panel-body">
