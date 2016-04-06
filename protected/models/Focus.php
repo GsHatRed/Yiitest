@@ -178,10 +178,10 @@ class Focus extends CActiveRecord
 		}
 	}
 
-	public function afterFind(){
-		parent::afterFind();
-		$this->_isFocus = Focus::isFocus($this->t_user_id, 0, 'no');
-	}
+	// public function afterFind(){
+	// 	parent::afterFind();
+	// 	$this->_isFocus = Focus::isFocus($this->t_user_id, 0, 'no');
+	// }
 	public function getFocus()
 	{
 		return Focus::isFocus($this->t_user_id, 0, 'no');

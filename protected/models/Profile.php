@@ -77,10 +77,10 @@ class Profile extends CActiveRecord
 		$id = empty($id) ? Yii::app()->user->id : $id;
 		$file = Yii::app()->basePath.Yii::app()->params['avatarUrl'].$id.'/'.$avatar;
 		if(file_exists($file) && !empty($avatar))
-			return Yii::app()->params['avatarView'].$id.'/'.$avatar;
+			return Yii::app()->createUrl(Yii::app()->params['avatarView']).'/'.$id.'/'.$avatar;
 		else
 			//echo $file;
-			return Yii::app()->params['avatarView'].'0/avatar.png';
+			return Yii::app()->createUrl(Yii::app()->params['avatarView']).'/0/avatar.png';
 	}
 	public static function avatarByUserId($id){
 		$model = self::model()->find('user_id=:user_id', array(':user_id'=>$id));
