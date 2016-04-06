@@ -46,17 +46,7 @@ $this->widget('bootstrap.widgets.TbListView', array(
     'htmlOptions' => array('style' => 'padding-top:0px;')
 ));
 ?>
-<?php //foreach($dataProvider->getData() as $key => $data):?>
-    <?php //if($data->parent_id==0): ?>
-    <?php //$float = $key%2==1?'right':'left'; ?>
-    <!-- <div class="chat" style="float:<?//=$float?>">
-        <span class="name"><?//=User::getNameById($data->user_id)?>:</span>
-        <span class="content"><?//=$data->content?></span>
-        <span class="time"><?//=date("Y-m-d H:i:s",$data->date)?></span>
-        <span class='praise right' title='喜欢' id="<?//=$data->id?>"><img href="" alt='赞'><?//=$data->praise?></span>
-        <span class='reply right' title='回复'><img href="" alt='回复'></span>
-    </div> -->
-<?php //endif;endforeach;?>
+
 <script>
     $(document).ready(function(){
         $('.praise').bind('click',function(){

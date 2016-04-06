@@ -1293,7 +1293,7 @@ a.list-group-item:focus {
     padding: 0 3px;
     zoom: 1;    
 }
-.tooltip-inner {padding:4px 6px;font-size:14px;max-width:300px;text-align: left;background:transparent;color:#DB7C22;opacity: 1;}
+.tooltip-inner {padding:4px 6px;font-size:14px;max-width:300px;text-align: left;background:transparent;color:#72AED0;;opacity: 1;}
 .tooltip.in {opacity: inherit;filter: inherit;}
 .tooltip-arrow {border:none !important;}
 .tooltip-arrow em, .tooltip-arrow span{

@@ -18,9 +18,7 @@
 .panel .panel-heading .pull-right .fa { font-size: 14px; }
 .panel  ul { padding: 0; margin: 0; }
 .panel  ul li:last-child { border-bottom: none; }
-.panel-body {
-  padding: 5px;
-}
+.panel-body {padding: 5px;}
 
 .media-list .media { border-bottom: #eee solid 1px; padding-bottom: 15px; }
 .media-list .media .media-object { width: 48px; height: 48px; padding: 1px; border: #ddd solid 1px; border-radius: 50%; }
@@ -40,3 +38,28 @@
 .media-list .media-action { margin-top: 10px; font-size: 12px; color: #999; }
 .media-list .media-action a { color: #666; }
 .media-list .media-action .dot { margin: 0 10px; }
+
+.back-to-top { position: fixed; bottom: 100px; right: 2px; padding: 3px 8px; font-size: 24px; color: #666; display: none; }
+.fa {display: inline-block;font: normal normal normal 14px/1 FontAwesome;font-size: inherit;text-rendering: auto;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;}
+.fa-arrow-up:before {content: "↑";  font-weight: bold;}
+
+.media-user { border-bottom: #ddd dotted 1px; padding-bottom: 8px; font-size: 12px; }
+.media-user .media-left img { border-radius: 50%; border: #ddd solid 1px; padding: 1px; margin-bottom: 6px;width: 48px;height: 48px }
+.media-user h2 { font-size: 14px; color: #333; }
+.media-user h2 img { height: 14px; margin-right: 5px; }
+.media-user h2 small { font-size: 12px;}
+.media-user h2 a { color: #666; }
+.media-user .time { line-height: 1.6em; color: #666;  font-size: 12px;}
+.media-user .label { font-size: 12px; font-weight: normal; width: 53px; line-height: 1.6em; padding: 0; display: block; text-align: center; }
+.media-footer { margin-top: 5px; }
+.media-footer .btn { margin-right: 10px;}
+.media-footer .stat { height: 45px; border-bottom: #eee solid 1px; margin-bottom: 8px; color: #666; padding: 0; text-align: center; }
+.media-footer .stat li { float: left; width: 25%; font-size: 12px; list-style: none; border-right: #eee solid 1px; }
+.media-footer .stat li h3 { font-size: 14px; margin: 3px 0; color: #D8582B; }
+.media-footer .stat li:last-child { border-right: none; }
+.popover-user { width: 244px; height: 135px; }
+.fa.fa-heart, .fa.fa-heart-o { color: #f00; }
+.fa-mars { font-weight: bold; color: #3B6FBA; }
+.fa-venus { font-weight: bold; color: #D8582B; }
+.media-left,.media-right,.media-body {display: table-cell;vertical-align: top;}
+.media-left{  padding-right: 10px;}

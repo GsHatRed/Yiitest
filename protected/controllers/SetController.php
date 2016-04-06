@@ -208,6 +208,53 @@ class SetController extends Controller
 			}
 		}
 	}
+// <div class="media media-user">
+// 	<div class="media-left">
+// 		<a href="/user/25794">
+// 		<img src="/uploads/avatar/000/02/57/94_avatar_small.jpg" alt="胖纸囧"></a>
+// 		<div class="label label-primary">CEO</div>
+// 	</div>
+// 	<div class="media-body">
+// 		<h2 class="media-heading">
+// 			<span class="fa fa-mars"></span> 
+// 			<a href="/user/25794">胖纸囧</a>
+// 			<small> (四川成都)</small>
+// 		</h2>
+// 		<div class="time">注册时间：2013-07-17
+// 			<br>最后登录：25分钟前<br>粉丝数：151小时24分
+// 		</div>
+// 	</div>
+// </div>
+// <div class="media-footer">
+// 	<a class="btn btn-xs btn-success btn-follow" href="/follow?id=25794">
+// 		<span class="glyphicon glyphicon-plus"></span> 关注
+// 	</a>
+// 	<a class="btn btn-xs btn-primary" href="/user/message/create?id=25794">
+// 		<span class="glyphicon glyphicon-envelope"></span> 发私信
+// 	</a>
+// 	<span class="pull-right">
+// 		<span class="fa fa-heart"></span> 
+// 		<span class="fa fa-heart"></span> 
+// 		<span class="fa fa-heart"></span> 
+// 		<span class="fa fa-heart"></span> 
+// 		<span class="fa fa-heart"></span> 
+// 	</span>
+// </div>
+
+	public function actionInfo($id){
+
+		$model = $this->loadModel($id);
+		$html = '<div class="media media-user"><div class="media-left">';
+		$html .= '<a href="'.$model->url.'">';
+		$html .= '<img src="'.Profile::avatarByUserId($id).'" alt="'.$model->username.'"/></a></div>';
+		$html .= '<div class="media-body"><h2 class="media-heading"><span class="fa fa-mars"></span> ';
+		$html .= '<a href="'.$model->url.'">'.User::getNameById($model->id).'</a>';
+		$html .= '<div class="time">最后登录：' . date('Y-m-d H:i:s',$model->profile->last_visit_time).'<br>';
+		$html .= '粉丝:' . Focus::countTfocus($id) . ' (排名:' . Focus::fansRank($id) . ')</div></div>';
+		$html .= '<div class="media-footer"><a class="btn btn-xs btn-success btn-follow" href="/set/FocusEasy/'.$model->id.'">';
+		$html .= '<span class="glyphicon glyphicon-plus"></span>'.Focus::isFocus($id,0,'no') ? "已關注":"關注".'</a></div>';
+		echo $html;
+	}
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.

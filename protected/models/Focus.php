@@ -153,6 +153,21 @@ class Focus extends CActiveRecord
 		return self::model()->count('t_user_id=:tuid and type=:type',array(':tuid'=>$id,':type'=>0));
 	}
 
+	public static function fansRank($id = null){
+		$rank = '這還排什麼啊';
+		$criteria = new CDbCriteria;
+		$criteria->addCondition("type=0");
+		$criteria->select = "count(*),t_user_id";
+		$criteria->group = 't_user_id';
+		$criteria->order = 'count(*) DESC,t_user_id ASC' ;
+		$model = self::model()->findAll($criteria);
+		foreach ($model as $key => $data) {
+			if($data['t_user_id'] == $id)
+				$rank = $key+1;
+		}
+		return $rank;
+	}
+
 	public function beforeSave(){
 		if(parent::beforeSave()){
 			$this->create_time = time();

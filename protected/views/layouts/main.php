@@ -13,7 +13,10 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/static/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/static/css/form.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/static/css/perfect-scrollbar.min.css" />
 	<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/static/js/util.js");?>
+	<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/static/js/popover.js");?>
+	<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/static/js/perfect-scrollbar.jquery.min.js",2);?>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
@@ -51,7 +54,7 @@
 		    <ul class="online-scroll list-unstyled ps-container ps-theme-default ps-active-y" style="height: 443px;" data-ps-id="137d9bf9-205a-ad95-5cec-a529472e5734">
 				<?php foreach( User::getOnlineUser() as $key => $data ): ?>
 				<li>
-					<a href="<?=$data->url?>" rel="author" data-original-title="" title="">
+					<a href="<?=Yii::app()->createUrl('/set/info',array('id'=>$data->id))?>" rel="author" data-original-title="" title="">
 					<img src="<?=Profile::avatarByUserId($data->id)?>" alt="gotokfc">
 					</a>
 				</li>
@@ -76,6 +79,6 @@
 	</div><!-- footer -->
 
 </div><!-- page -->
-
+<a class="back-to-top btn btn-default"><span class="fa fa-arrow-up"></span></a>
 </body>
 </html>

@@ -273,7 +273,7 @@ class Bootstrap extends CApplicationComponent {
         /* enable bootboxJS? */
         if ($this->enableBootboxJS)
             $cs->registerScriptFile($this->getAssetsUrl() . '/js/bootstrap.bootbox.min.js', $position);
-
+        $cs->registerScriptFile($this->getAssetsUrl() . '/js/bootstrap.js', $position);
         /* enable bootstrap notifier ? */
         if ($this->enableNotifierJS) {
             // notifier requires a style
@@ -281,7 +281,7 @@ class Bootstrap extends CApplicationComponent {
             $cs->registerScriptFile($this->getAssetsUrl() . '/js/bootstrap.notify.js', $position);
         }
         if($this->enablePrompts) {
-            $cs->registerScriptFile($this->getAssetsUrl() . '/js/bootstrap-prompts.js', $position);
+            //$cs->registerScriptFile($this->getAssetsUrl() . '/js/bootstrap-prompts.js', $position);
         }
         
         $cs->registerScriptFile($this->getAssetsUrl() . '/js/bootstrap' . (!YII_DEBUG ? '.min' : '') . '.js', $position);
