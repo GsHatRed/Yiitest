@@ -42,9 +42,24 @@ $("[data-toggle=tooltip]").tooltip({container: 'body'});
 	    var el = $(this);
 	    el.popover('show');
 	    $.ajax({
-	        url: el.attr('href'),
+	        url: el.attr('rhref'),
 	        success: function(html){
 	            $('.popover-user').html(html);
+	            $('.popover .btn-success, .popover .btn-danger').click(function(){
+	                $.ajax({
+	                    url: $(this).attr('href'),
+	                    success: function(data) {
+	                        $('.popover .btn-success').text('关注成功').addClass('disabled');
+	                        $('.popover .btn-danger').text('取消成功').addClass('disabled');
+	                    },
+	                    error: function (XMLHttpRequest, textStatus) {
+	                        $(_this).popover('hide');
+	                        $('#modal').modal({ remote: '/login'});
+	                        this.abort();
+	                    }
+	                });
+	                return false;
+	            });
 	        }
 	    });
 	    $('.popover').on('mouseleave', function () {
@@ -59,3 +74,4 @@ $("[data-toggle=tooltip]").tooltip({container: 'body'});
 	    }, 100);
 	});
 })
+

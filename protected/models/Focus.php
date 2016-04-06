@@ -11,6 +11,7 @@
  */
 class Focus extends CActiveRecord
 {
+	private $_isFocus;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -175,5 +176,14 @@ class Focus extends CActiveRecord
 		}else{
 			return false;
 		}
+	}
+
+	public function afterFind(){
+		parent::afterFind();
+		$this->_isFocus = Focus::isFocus($this->t_user_id, 0, 'no');
+	}
+	public function getFocus()
+	{
+		return Focus::isFocus($this->t_user_id, 0, 'no');
 	}
 }
