@@ -61,21 +61,35 @@ class SetController extends Controller
 
 			$image = CUploadedFile::getInstance($profile_model, 'avatar');  
 			if( is_object($image) && get_class($image) === 'CUploadedFile' ){  
-			    $profile_model->avatar = md5($image->name).'.'.explode('image/', $image->type)[1];  
+				$img_name = md5($image->name);
+			    $profile_model->avatar = $img_name.'.'.explode('image/', $image->type)[1];  
 			}else{  
 			    //$profile_model->avatar = 'NoPic.jpg';  
 			}  
 
 			if($model->save() && $profile_model->save())
 				if(is_object($image) && get_class($image) === 'CUploadedFile'){  
-			        $image->saveAs(Yii::app()->basePath.Yii::app()->params['avatarUrl'].Yii::app()->user->id.'/'.$profile_model->avatar);  
+					$path = Yii::app()->basePath.Yii::app()->params['avatarUrl'].Yii::app()->user->id.'/';
+					if(!file_exists($path))
+						mkdir($path, 0777, TRUE);
+			        $image->saveAs($path.$profile_model->avatar);  
+			        
+			        $thumb = Yii::app()->thumb;
+                    $thumb->image = $path.$profile_model->avatar;
+                    $thumb->directory = $path;
+                    $thumb->defaultName = $img_name.'_m';
+                    $thumb->width = 48;
+                    $thumb->height = 48;
+                    $thumb->createThumb();
+                    $thumb->save();
+
 			    }
 			    Yii::app()->user->setState('username', $model->username!=null ? $model->username:"");
 			    Yii::app()->user->setState('email', $model->email!=null ? $model->email:"");
 			    Yii::app()->user->setState('qq', $profile_model->qq!=null ? $profile_model->qq:"");
 			    Yii::app()->user->setState('name', $profile_model->name!=null ? $profile_model->name:"");
 			    Yii::app()->user->setState('profiles', $profile_model->profiles!=null ? $profile_model->profiles:"");
-				$this->redirect(array('update'));
+				$this->redirect(array('profile'));
 		}
 
 		$this->render('update',array(

@@ -85,28 +85,6 @@ class TUploadedFile extends CComponent {
         return $results;
     }
 
-        // 上传校讯图片使用
-    public static function getMottoInstances($model, $attribute) {
-        self::$_files = array();
-        if (!isset($_FILES) || !is_array($_FILES))
-            return [];
-
-        foreach ($_FILES as $class => $info)
-            self::collectFilesRecursive($class, $info['name'], $info['tmp_name'], $info['type'], $info['size'], $info['error']);
-        
-        $name = CHtml::resolveName($model, $attribute);
-        $len = strlen($name);
-        $results = array();
-        //Yii::log(var_export(self::$_files, true), CLogger::LEVEL_INFO);
-        foreach (array_keys(self::$_files) as $key)
-            // var_dump($len);exit;
-            //兼容移动客户端上传的附件uploadedfile_x的格式
-
-            // if ((0 === strncmp($key, $name, $len) || 1 === preg_match('/^uploadedfile_\d+$/i', $key)) && self::$_files[$key]->getError() != UPLOAD_ERR_NO_FILE)
-                $results[] = self::$_files[$key];
-
-        return $results;
-    }
 
     /**
      * Processes incoming files for {@link getInstanceByName}.

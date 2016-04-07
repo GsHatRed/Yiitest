@@ -41,6 +41,9 @@ return array(
         'image' => array(
             'class' => 'core.components.TImage',
         ),
+        'thumb'=>array(
+			'class'=>'core.components.CThumb',
+		),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,

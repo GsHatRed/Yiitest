@@ -5,7 +5,7 @@
  *
  */
 Yii::import('core.components.image_drivers.Image');
-class TImage extends TComponentFactory {
+class TImage  {
     
     // 缩放约束
     const RESIZE_NONE = 0x01;

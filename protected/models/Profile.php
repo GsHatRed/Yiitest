@@ -73,8 +73,15 @@ class Profile extends CActiveRecord
 			'sex' => '性别'
 		);
 	}
-	public static function avatarHelper($avatar,$id = null){
+	public static function avatarHelper($avatar,$id = null,$type = 'avatar'){
 		$id = empty($id) ? Yii::app()->user->id : $id;
+		if($type == 'avatar'){
+			$img = explode('.', $avatar);
+			$avatar_m = $img[0].'_m.'.$img[1];
+			$file = Yii::app()->basePath.Yii::app()->params['avatarUrl'].$id.'/'.$avatar_m;
+			if(file_exists($file) && !empty($avatar))
+				return Yii::app()->createUrl(Yii::app()->params['avatarView']).'/'.$id.'/'.$avatar_m;
+		}
 		$file = Yii::app()->basePath.Yii::app()->params['avatarUrl'].$id.'/'.$avatar;
 		if(file_exists($file) && !empty($avatar))
 			return Yii::app()->createUrl(Yii::app()->params['avatarView']).'/'.$id.'/'.$avatar;
