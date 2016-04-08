@@ -75,7 +75,7 @@ class Profile extends CActiveRecord
 	}
 	public static function avatarHelper($avatar,$id = null,$type = 'avatar'){
 		$id = empty($id) ? Yii::app()->user->id : $id;
-		if($type == 'avatar'){
+		if($type == 'avatar' && !empty($avatar)){
 			$img = explode('.', $avatar);
 			$avatar_m = $img[0].'_m.'.$img[1];
 			$file = Yii::app()->basePath.Yii::app()->params['avatarUrl'].$id.'/'.$avatar_m;
