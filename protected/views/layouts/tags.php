@@ -1,5 +1,4 @@
 <?php $this->beginContent('/layouts/main'); ?>
-<div class="container">
 	<div class="span-6 last">
 		<div id="sidebar">
 			
@@ -14,5 +13,5 @@
 			<?php echo $content; ?>
 		</div><!-- content -->
 	</div>
-</div>
+
 <?php $this->endContent(); ?>

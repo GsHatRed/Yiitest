@@ -1,6 +1,6 @@
 <?php 
 class ChatController extends Controller{
-	
+	public $layout='column2';
 	public function actionIndex(){
 		$model = new Chat;
 		$model->unSetAttributes();
