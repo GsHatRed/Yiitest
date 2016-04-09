@@ -71,7 +71,7 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 			'class' => 'application.modules.srbac.components.AuthWebUser',
-            'loginUrl' => array('/yii/site/login'),
+      'loginUrl' => array('/yii/site/login'),
 		),
 		// 'db'=>array(
 		// 	'connectionString' => 'sqlite:protected/data/blog.db',
@@ -79,31 +79,31 @@ return array(
 		// ),
 		// uncomment the following to use a MySQL database
 		'db' => array(
-            'connectionString' => 'mysql:host=127.0.0.1;dbname=test;port=3306',
-            'emulatePrepare' => true,
-            'username' => 'root',
-            'password' => '',
-            'charset' => 'utf8',
-            'tablePrefix' => 'tbl_',
-        ),
-        'authManager' => array(  
-	        //'class'=>'srbac.components.SDbAuthManager',  
-           // The database component used  
-           'connectionID'=>'db',  
-           // The itemTable name (default:authitem)  
-           'itemTable'=>'authitem',  
-           // The assignmentTable name (default:authassignment)  
-           'assignmentTable'=>'authassignment',  
-           // The itemChildTable name (default:authitemchild)  
-           'itemChildTable'=>'authitemchild',  
-           'class'=>'CDbAuthManager',  
-            'defaultRoles'=>array('authenticated', 'guest'),  
-            'behaviors' => array(
-                'auth' => array(
-                    'class' => 'application.modules.srbac.components.AuthBehavior',
-                    'admins' => array('admin'),
-                ),
-            ),
+        'connectionString' => 'mysql:host=127.0.0.1;dbname=test;port=3306',
+        'emulatePrepare' => true,
+        'username' => 'root',
+        'password' => '',
+        'charset' => 'utf8',
+        'tablePrefix' => 'tbl_',
+    ),
+      'authManager' => array(  
+          //'class'=>'srbac.components.SDbAuthManager',  
+         // The database component used  
+         'connectionID'=>'db',  
+         // The itemTable name (default:authitem)  
+         'itemTable'=>'authitem',  
+         // The assignmentTable name (default:authassignment)  
+         'assignmentTable'=>'authassignment',  
+         // The itemChildTable name (default:authitemchild)  
+         'itemChildTable'=>'authitemchild',  
+         'class'=>'CDbAuthManager',  
+          'defaultRoles'=>array('authenticated', 'guest'),  
+          'behaviors' => array(
+              'auth' => array(
+                  'class' => 'application.modules.srbac.components.AuthBehavior',
+                  'admins' => array('admin'),
+              ),
+          ),
 	    ),  
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors

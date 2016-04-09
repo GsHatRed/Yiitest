@@ -41,7 +41,7 @@
 					array('label'=>'退出 ('.User::getNameById(Yii::app()->user->id).')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
 					array('label'=>'管理权限', 'url'=>array('/srbac/authitem/assign'), 'visible'=>Yii::app()->user->isAdmin)
 				),
-			)); 
+			));
 		?>
 		</div><!-- mainmenu -->
 	</div><!-- header -->

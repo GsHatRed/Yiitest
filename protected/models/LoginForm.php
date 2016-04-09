@@ -70,7 +70,7 @@ class LoginForm extends CFormModel
 		{
 			$duration=$this->rememberMe ? 3600*24*30 : 0; // 30 days
 			$user = $this->_identity->user;
-            Yii::app()->user->setIsAdmin(in_array($user->username, Yii::app()->authManager->admins));			
+            Yii::app()->user->setIsAdmin(in_array($user->username, Yii::app()->authManager->admins));		
 			$profile = $user->profile;
 			$profile->last_visit_ip = Yii::app()->request->userHostAddress;
 			$profile->last_visit_time = time();

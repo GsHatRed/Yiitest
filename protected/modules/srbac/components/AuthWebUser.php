@@ -20,7 +20,7 @@ class AuthWebUser extends CWebUser {
      */
     public function init() {
         parent::init();
-        $this->setIsAdmin(in_array($this->name, Yii::app()->authManager->admins));
+        $this->setIsAdmin(in_array($this->username, Yii::app()->authManager->admins));
     }
 
     /**
