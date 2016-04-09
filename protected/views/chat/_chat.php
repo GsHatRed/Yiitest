@@ -5,6 +5,7 @@
 	</a>
     <span class="content"><?=$data->content?></span>
     <span class="time"><?=date("Y-m-d H:i:s",$data->date)?></span>
-    <span class='praise right icon-thumbs-up-2' data-toggle="tooltip" data-original-title='喜欢' id="<?=$data->id?>"><?=$data->praise?></span>
-    <span class='reply right' data-toggle="tooltip" data-original-title='回复'><img href="" alt='回复'></span>
+    <a class='delete right icon-remove' href='javascript:voit(0)' data-toggle="tooltip" data-original-title='删除' id="<?=$data->id?>">删除</a>
+    <a class='praise right icon-thumbs-up-2' href='javascript:voit(0)' data-toggle="tooltip" data-original-title='喜欢' id="<?=$data->id?>"><?=$data->chatCount?></a>
+    <a class='reply right icon-pencil' href='javascript:voit(0)' data-toggle="tooltip" data-original-title='回复' id="<?=$data->id?>">回复</a>
 </div>

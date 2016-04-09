@@ -57,8 +57,37 @@ $this->widget('bootstrap.widgets.TbListView', array(
                     el.html(Number(el.html())+1);
                 }else{
                     $.notify({type: 'error', message: {text: result, icon: 'icon-close'}}).show();
+                    el.html(Number(el.html())-1);
                 }
             });
+            return false;
+        })
+
+        $('.reply').bind('click',function(){
+            var el = $(this);
+            $.post("<?=Yii::app()->createURL('/chat/chats')?>",{'id':el.attr('id')},function(result){
+                if(result=='ok'){
+                    $.notify({type: 'success', message: {text: '评论成功！', icon: 'icon-checkmark'}}).show();
+                    el.html(Number(el.html())+1);
+                }else{
+                    $.notify({type: 'error', message: {text: result, icon: 'icon-close'}}).show();
+                    el.html(Number(el.html())-1);
+                }
+            });
+            return false;
+        })
+
+        $('.delete').bind('click',function(){
+            var el = $(this);
+            $.post("<?=Yii::app()->createURL('/chat/delete')?>",{'id':el.attr('id')},function(result){
+                if(result=='ok'){
+                    $.notify({type: 'success', message: {text: '删除成功！', icon: 'icon-checkmark'}}).show();
+                    $('.tooltip').remove();el.parent('div').remove();
+                }else{
+                    $.notify({type: 'error', message: {text: result, icon: 'icon-close'}}).show();
+                }
+            });
+            return false;
         })
     })
 </script>

@@ -34,7 +34,19 @@ class ChatController extends Controller{
 	}
 
 	public function actionChats(){
+		if(Yii::app()->user->isGuest){
+			echo '请先登录';
+			Yii::app()->end();
+		}
+	}
 
+	public function actionDelete(){
+		if(Yii::app()->user->isGuest){
+			echo '请先登录';
+			Yii::app()->end();
+		}
+		$this->loadModelById($_POST['id'])->delete();
+		echo 'ok';
 	}
 
 	public function actionPraise(){
@@ -50,7 +62,7 @@ class ChatController extends Controller{
 			$model->praiseCount();
 			echo 'ok';
 		}else{
-			echo '已经点过了!';
+			echo '你不爱我了吗?!';
 		}
 	}
 

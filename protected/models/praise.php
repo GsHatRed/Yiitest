@@ -75,6 +75,8 @@ class Praise extends CActiveRecord
 			$praise->a_id = $id;
 			$praise->module = $module;
 			$praise->save();
+		}else{
+			$praise->delete();
 		}
 		return $return;
 	} 

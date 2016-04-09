@@ -32,6 +32,7 @@ class Chat extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'user' => array(self::BELONGS_TO, 'user', 'user_id'),
+			'chatCount' => array(self::STAT, 'praise', 'a_id', 'condition'=>'type=0'),
 		);
 	}
 	/**
