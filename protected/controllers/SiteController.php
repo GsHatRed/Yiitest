@@ -99,14 +99,6 @@ class SiteController extends Controller
 	 */
 	public function actionLogout()
 	{
-		User::model()->updateByPk(Yii::app()->user->id,array('status'=>'0')); 
-		$profile = Profile::model()->find('user_id=:uid',array(':uid'=>Yii::app()->user->id));
-		$time = time() - $profile->last_visit_time;
-		$omin = floor($time / 60);
-		$osec = $time % 60;
-		$otime = $osec>50 ? $omin+1 : $omin;
-		$profile->online_time = $profile->online_time+$otime;
-		$profile->save();
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}

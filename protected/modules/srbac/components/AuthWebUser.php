@@ -14,7 +14,6 @@
  * @property boolean $isAdmin whether the user is an administrator.
  */
 class AuthWebUser extends CWebUser {
-
     /**
      * Initializes the component.
      */
@@ -61,7 +60,14 @@ class AuthWebUser extends CWebUser {
      * @throws CDbException
      */
     public function beforeLogout() {
-        
+        User::model()->updateByPk(Yii::app()->user->id,array('status'=>'0')); 
+        $profile = Profile::model()->find('user_id=:uid',array(':uid'=>Yii::app()->user->id));
+        $time = time() - $profile->last_visit_time;
+        $omin = floor($time / 60);
+        $osec = $time % 60;
+        $otime = $osec>50 ? $omin+1 : $omin;
+        $profile->online_time = $profile->online_time+$otime;
+        $profile->save();
         return true;
     }
 
