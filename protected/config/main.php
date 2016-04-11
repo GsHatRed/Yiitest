@@ -101,7 +101,7 @@ return array(
           'behaviors' => array(
               'auth' => array(
                   'class' => 'application.modules.srbac.components.AuthBehavior',
-                  'admins' => array('admin'),
+                  'admins' => array('admin','demo'),
               ),
           ),
 	    ),  

@@ -313,7 +313,7 @@ class CWebUser extends CApplicationComponent implements IWebUser
 	public function getName()
 	{
 		if(($username=$this->getState('__username'))!==null)
-			return $name;
+			return $username;
 		else
 			return $this->guestName;
 	}

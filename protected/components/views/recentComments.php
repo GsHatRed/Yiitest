@@ -1,6 +1,6 @@
 <ul>
 	<?php if(!empty($this->getRecentComments())):foreach($this->getRecentComments() as $comment): ?>
-	<li><?php echo $comment->authorLink; ?> on
+	<li><?php echo $comment->authorLink; ?> 評論
 		<?php echo CHtml::link(CHtml::encode($comment->post->title), $comment->getUrl()); ?>
 	</li>
 	<?php endforeach;else: ?>
