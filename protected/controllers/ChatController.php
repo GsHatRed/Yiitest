@@ -21,6 +21,8 @@ class ChatController extends Controller{
 		{
 			$model->user_id = Yii::app()->user->id;
 			$model->content = $_POST['Chat']['content'];
+			if(isset($_POST['pid']))
+				$model->parent_id = $_POST['pid'];
 			$model->date = time();
 			if($model->save())
 				$this->redirect(array('index'));

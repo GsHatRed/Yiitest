@@ -1,14 +1,32 @@
-<p>想說點什麼呢?</p>
 <script type="text/javascript" src="<?=Yii::app()->request->baseUrl?>/static/ckeditor/ckeditor.js"></script>
+
+<?php
+// $this->widget('bootstrap.widgets.TbGridView', array(
+//     'dataProvider' => $dataProvider,
+//     'columns' =>  array(
+//         array('name'=>'user_id','value'=>'User::getNameById($data->user_id)'),
+//         array('name'=>'content','type'=>'raw','value'=>'$data->content'),
+//         array('name'=>'date','value'=>'date("Y-m-d",$data->date)')
+//         )
+// ));
+$this->widget('bootstrap.widgets.TbListView', array(
+    'dataProvider' => $dataProvider,
+    'itemView' => '_chat',
+    'template' => '{items}{pager}',
+    'id' => 'chat',
+    'htmlOptions' => array('style' => 'padding-top:0px;')
+));
+?>
+<p>想說點什麼呢?</p>
 <?php $form = $this->beginWidget('CActiveForm', array(
     'id'=>'chat-form',
     'enableAjaxValidation'=>true,
 )); ?>
-	<div class="row">
-		<?php echo CHtml::activeTextArea($model,'content',array('rows'=>10, 'cols'=>70)); ?>
-		<?php echo $form->error($model,'content'); ?>
-	</div><br />
-	<div class="row buttons">
+    <div class="row">
+        <?php echo CHtml::activeTextArea($model,'content',array('rows'=>10, 'cols'=>70)); ?>
+        <?php echo $form->error($model,'content'); ?>
+    </div><br />
+    <div class="row buttons">
         <?php 
             if(Yii::app()->user->isGuest){
                 echo CHtml::link('請先登錄',Yii::app()->createURL('/site/login'));
@@ -29,24 +47,6 @@
     CKEDITOR.replace( 'Chat_content' );
 </script>
 
-<?php
-// $this->widget('bootstrap.widgets.TbGridView', array(
-//     'dataProvider' => $dataProvider,
-//     'columns' =>  array(
-//         array('name'=>'user_id','value'=>'User::getNameById($data->user_id)'),
-//         array('name'=>'content','type'=>'raw','value'=>'$data->content'),
-//         array('name'=>'date','value'=>'date("Y-m-d",$data->date)')
-//         )
-// ));
-$this->widget('bootstrap.widgets.TbListView', array(
-    'dataProvider' => $dataProvider,
-    'itemView' => '_chat',
-    'template' => '{items}{pager}',
-    'id' => 'chat',
-    'htmlOptions' => array('style' => 'padding-top:0px;')
-));
-?>
-
 <script>
     $(document).ready(function(){
         $('.praise').bind('click',function(){
@@ -65,15 +65,16 @@ $this->widget('bootstrap.widgets.TbListView', array(
 
         $('.reply').bind('click',function(){
             var el = $(this);
-            $.post("<?=Yii::app()->createURL('/chat/chats')?>",{'id':el.attr('id')},function(result){
-                if(result=='ok'){
-                    $.notify({type: 'success', message: {text: '评论成功！', icon: 'icon-checkmark'}}).show();
-                    el.html(Number(el.html())+1);
-                }else{
-                    $.notify({type: 'error', message: {text: result, icon: 'icon-close'}}).show();
-                    el.html(Number(el.html())-1);
-                }
-            });
+            var user_name = el.parent('.chat').children('a').children('.name').contents().filter(function()
+                {
+                    return this.nodeType==3;//文本节点
+                }).text();
+            $('#reply_input').remove();
+            $('.hint').remove();
+            $('#chat-form').append('<input id="reply_input" name="pid" value="'+el.attr('id')+'" type="hidden" />');
+            var hint = $('<span class="hint">回复'+user_name+'<a class="cancle_hint" href="javascript:void(0)">取消</a></span>');
+            $('#chat-form .buttons').append(hint);
+            hint.bind('click',cancle);
             return false;
         })
 
@@ -89,5 +90,11 @@ $this->widget('bootstrap.widgets.TbListView', array(
             });
             return false;
         })
+        function cancle(){
+            $('#reply_input').remove();
+            $('.hint').remove();
+            return false;
+        }
+
     })
 </script>

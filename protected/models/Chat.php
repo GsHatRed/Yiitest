@@ -44,8 +44,23 @@ class Chat extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('user_id', 'required'),
+			array('date', 'checkattr'),
 		);
 	}
+	/**
+     * 校验发言间隔
+     */
+    public function checkattr($attribute, $params) {
+    	$model = self::model()->find(array(
+				  'order' => 'date DESC',
+				  'condition' => 'user_id='.$this->user_id,
+				));
+        $lastdate = $model->date;
+        if ($this->date - $lastdate < 5) {
+            $this->addError($attribute, '磨叽个什么?');
+        }
+        
+    }
 
 	/**
 	 * @return array customized attribute labels (name=>label)
@@ -63,5 +78,9 @@ class Chat extends CActiveRecord
 	}
 	public function praiseCount() {
         self::model()->updateByPk($this->id, array('praise' => $this->praise + 1));
+    }
+
+    public static function getUserById($id){
+    	return User::getNameById(self::model()->findByPk($id)->user_id);
     }
 }
