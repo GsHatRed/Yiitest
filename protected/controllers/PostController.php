@@ -46,6 +46,7 @@ class PostController extends Controller
 	public function actionView()
 	{
 		$post=$this->loadModel();
+		$post->view = 1;
 		$comment=$this->newComment($post);
 
 		$this->render('view',array(
@@ -135,6 +136,29 @@ class PostController extends Controller
 			'dataProvider'=>$dataProvider,
 		));
 	}
+	//站内搜索文章
+	public function actionSearch()
+	{
+		$criteria=new CDbCriteria(array(
+			'condition'=>'status='.Post::STATUS_PUBLISHED,
+			'order'=>'update_time DESC',
+			'with'=>'commentCount',
+		));
+		if(isset($_POST['keyword']))
+			$criteria->addSearchCondition('title',$_POST['keyword']);
+
+		$dataProvider=new CActiveDataProvider('Post', array(
+			'pagination'=>array(
+				'pageSize'=>Yii::app()->params['postsPerPage'],
+			),
+			'criteria'=>$criteria,
+		));
+
+		$this->render('index',array(
+			'dataProvider'=>$dataProvider,
+		));
+	}
+
 	public function actionTags(){
 		$this->layout='tags';
 		$criteria=new CDbCriteria(array(

@@ -26,6 +26,12 @@
 
 	<div id="header">
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
+		<div id="search">
+			<form action="<?=Yii::app()->createURL('/post/search')?>" method="POST">
+				<input placeholder="站内搜索" name="keyword" />
+				<input type="submit" value="确认">
+			</form>
+		</div>
 		<div id="mainmenu">
 		<?php 
 			$this->widget('zii.widgets.CMenu',array(
@@ -44,6 +50,7 @@
 			));
 		?>
 		</div><!-- mainmenu -->
+
 	</div><!-- header -->
 
 	<?php $this->widget('zii.widgets.CBreadcrumbs', array(

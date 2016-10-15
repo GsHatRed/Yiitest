@@ -20,7 +20,12 @@ body
 	padding: 0;
 	border-bottom: 3px solid #C9E0ED;
 }
-
+#search{
+	float: right;
+	padding: 8px
+}
+#search a{color:#333;background: #EFFDFF;padding: 4px}
+#search form{margin: 0}
 #content
 {
 	padding: 20px;

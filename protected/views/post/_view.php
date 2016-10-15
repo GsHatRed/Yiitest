@@ -17,7 +17,7 @@
 		<b>標籤:</b>
 		<?php echo implode(', ', $data->tagLinks); ?>
 		<br/>
-		<?php echo CHtml::link('查看', $data->url); ?> |
+		<?php echo $data->view == 1 ? '' : CHtml::link('查看', $data->url).'|'; ?> 
 		<?php echo CHtml::link("评论 ({$data->commentCount})",$data->url.'#comments'); ?> |
 		最后更新于 <?php echo date('M-d, Y',$data->update_time); ?>
 	</div>

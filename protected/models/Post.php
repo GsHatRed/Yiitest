@@ -18,7 +18,7 @@ class Post extends CActiveRecord
 
 	private $_oldTags;
 	public $comment;
-
+	public $view;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return static the static model class
